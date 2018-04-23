@@ -9,51 +9,52 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+<div id="post-<?php the_ID(); ?>" <?php post_class(' col-xs-12 '); ?>>
+	<div class="blog-item">
+		<?php woocom_post_thumbnail(); ?>
+	
+		<div class="blog-detail mt-30">
+			<?php 
+				woocom_posted_on(); 
 
-		if ( 'post' === get_post_type() ) :
+					if ( is_singular() ) :
+						the_title( '<h3>', '</h3>' );
+					else :
+						the_title( '<h3><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+					endif;
 			?>
-			<div class="entry-meta">
-				<?php
-				woocom_posted_on();
-				woocom_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
 
-	<?php woocom_post_thumbnail(); ?>
+			<p>Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.</p>
+			<hr>
+			<div class="post-info">
+				<ul>
+					<li><?php woocom_posted_by(); ?></li>
+					<li>
+						<!-- <a href="<?php // echo esc_url( get_permalink() )  ?>">  -->
+						<?php  // get_comments_number returns only a numeric value
 
-	<div class="entry-content">
-		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'woocom' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
+							if ( comments_open() ) {
+								 $num_comments = get_comments_number();
+								if ( $num_comments == 0 ) {
+									$comments = __('No Comments');
+								} elseif ( $num_comments > 1 ) {
+									$comments = $num_comments . __(' Comments');
+								} else {
+									$comments = __('1 Comment');
+								}
+								echo $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
+							} 
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'woocom' ),
-			'after'  => '</div>',
-		) );
-		?>
-	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php woocom_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+						?>.
+					<!-- </a> -->
+
+					 </li>
+				</ul>
+			</div>
+			
+			<?php // woocom_entry_footer(); ?>
+
+		</div>
+	</div>
+</div>
