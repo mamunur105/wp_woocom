@@ -19,3 +19,75 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
+
+
+/*woocommerce prize override */
+
+.woocommerce div.product  span.price {
+    font-size: 18px;
+    color: #EA232A;
+}
+
+.product-item-details {
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.woocommerce .star-rating::before{
+
+}
+.woocommerce .star-rating span::before {
+    color: rgb(255, 198, 0);
+    /*background: #7e7e7e;*/
+}
+.tinv-wraper.tinv-wishlist {
+    width: 40px;
+    height: 40px;
+}
+.woocommerce.product.compare-button,
+.wishlist-styling{
+	position: relative;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+}
+.compare-styling i,
+.wishlist-styling i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.woocommerce.product.compare-button a.compare,
+/*.woocommerce.product.compare-button a.compare.button,*/
+.wishlist-styling a.tinvwl_add_to_wishlist_button {
+    z-index: 2;
+    background: transparent !important;
+    position: relative;
+}
+.woocommerce.product.compare-button a.compare.added{
+    background: #fff !important;
+    line-height: 40px;
+    width: 50px;
+}
+.woocommerce.product.compare-button a.compare.button.added{
+    padding: 0;
+    width: 70px !important;
+}
+a.button.product_type_simple.add_to_cart_button.added i {
+    display: none;
+}
+a.added_to_cart.wc-forward {
+    position: absolute;
+    top: 0;
+    width: 70px;
+    right: 0;
+    text-align: center;
+}
+.price-box {
+    overflow: hidden;
+    min-height: 35px;
+}
+.cat-dropdown {
+    z-index: 5;
+}

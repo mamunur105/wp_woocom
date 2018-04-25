@@ -39,10 +39,10 @@ get_header();
 	    <div class="container">
 	      <div class="row">
 
-	      	<div class="col-md-9 col-sm-8 pb-xs-60">
-	      		<div class="blog-listing">
+	      	<div class="col-md-12">
+	      		
 	      		<?php if ( have_posts() ) :?>
-	      			<div class="row">
+	      			
 	      				  		<?php
 							
 
@@ -55,8 +55,7 @@ get_header();
 									endif;
 
 									/* Start the Loop */
-									while ( have_posts() ) :
-										the_post();
+									while ( have_posts() ) : the_post();
 
 										/*
 										 * Include the Post-Type-specific template for the content.
@@ -79,12 +78,9 @@ get_header();
 
 						endif; 
 					?>
-	      		</div>
-	      	</div>
+	      		
 
-
-	      	<?php get_sidebar(); ?>
-
+	      	
 	      </div>
 	    </div>
 	</section>

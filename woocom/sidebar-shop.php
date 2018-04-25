@@ -75,19 +75,19 @@ if ( ! is_active_sidebar( 'sidebar-woocom' ) ) {
             <div class="sidebar-contant">
                 <ul>
                     <li>
-                        <div class="pro-media"> <a><img alt="T-shirt" src="images/products/item-small-1.jpg"></a> </div>
+                        <div class="pro-media"> <a><img alt="T-shirt" src="<?php echo THEME_URI ?>/images/products/item-small-1.jpg"></a> </div>
                         <div class="pro-detail-info"> <a>Summer Women Nice Cloth</a>
                             <div class="price-box"> <span class="price">$80.00</span> </div>
                         </div>
                     </li>
                     <li>
-                        <div class="pro-media"> <a><img alt="T-shirt" src="images/products/item-small-2.jpg"></a> </div>
+                        <div class="pro-media"> <a><img alt="T-shirt" src="<?php echo THEME_URI ?>/images/products/item-small-2.jpg"></a> </div>
                         <div class="pro-detail-info"> <a>Summer Women Nice Cloth</a>
                             <div class="price-box"> <span class="price">$80.00</span> </div>
                         </div>
                     </li>
                     <li>
-                        <div class="pro-media"> <a><img alt="T-shirt" src="images/products/item-small-3.jpg"></a> </div>
+                        <div class="pro-media"> <a><img alt="T-shirt" src="<?php echo THEME_URI ?>/images/products/item-small-3.jpg"></a> </div>
                         <div class="pro-detail-info"> <a>Summer Women Nice Cloth</a>
                             <div class="price-box"> <span class="price">$80.00</span> </div>
                         </div>
