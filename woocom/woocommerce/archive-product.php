@@ -76,14 +76,15 @@ do_action( 'woocommerce_before_main_content' );
                 </div>
                 <div class="short-by float-right-sm"> <span>Sort By</span>
                   <div class="select-item">
-                    <select>
+                  		<?php woocommerce_catalog_ordering()// woocommerce_catalog_ordering() ?>
+                    <!-- <select>
                       <option value="" selected="selected">Name (A to Z)</option>
                       <option value="">Name(Z - A)</option>
                       <option value="">price(low&gt;high)</option>
                       <option value="">price(high &gt; low)</option>
                       <option value="">rating(highest)</option>
                       <option value="">rating(lowest)</option>
-                    </select>
+                    </select> -->
                   </div>
                 </div>
               </div>
@@ -91,11 +92,8 @@ do_action( 'woocommerce_before_main_content' );
               <div class="col-md-6">
                 <div class="show-item right-side float-left-sm"> <span>Show</span>
                   <div class="select-item">
-                    <select>
-                      <option value="" selected="selected">30</option>
-                      <option value="">20</option>
-                      <option value="">10</option>
-                    </select>
+                  	<?php 	woocommerce_catalog_page_ordering();?>
+                    
                   </div>
                   <span>Per Page</span>
                 </div>

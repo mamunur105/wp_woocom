@@ -11,10 +11,25 @@
  * @package woocom
  */
 
-get_header();
-?>
-<h1>About page</h1>
+get_header(); ?>
 
+<div id="primary" class="content-area">
+	<main id="main" class="site-main">
 <?php
+	/* Start the Loop */
+									while ( have_posts() ) :
+										the_post();
 
-get_footer();
+										/*
+										 * Include the Post-Type-specific template for the content.
+										 * If you want to override this in a child theme, then include a file
+										 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+										 */
+the_content();
+									endwhile;
+
+?>
+</main>
+</div>
+
+<?php get_footer();

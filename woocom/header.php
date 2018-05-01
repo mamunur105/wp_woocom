@@ -40,7 +40,7 @@
 <?php $ishome = is_front_page() ? ' common-home ':' ' ?>
 <body <?php body_class($ishome); ?>>
 
-<div class="xpent-loader"></div>
+<!-- <div class="xpent-loader"></div> -->
 
 <div id="page" class="main ">
 	<!-- HEADER START -->
@@ -68,18 +68,14 @@
 										<span class="hidden-xs hidden-sm hidden-md">Compare</span>
 									</a>
 								</li>
-								<li class="login-icon">
-									<a href="login.html" title="Sing In">
-										<i class="fa fa-user"></i>
-										<span class="hidden-xs hidden-sm hidden-md">Sign In</span>
-									</a>
-								</li>
-								<li class="Register-icon">
-									<a href="register.html" title="Register">
-										<i class="fa fa-user-plus"></i>
-										<span class="hidden-xs hidden-sm hidden-md">Register</span>
-									</a>
-								</li>
+
+	<?php if ( is_user_logged_in() ) { ?>
+		<li class="login-icon"><a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') )); ?>" title="<?php esc_attr__('My Account','woocom'); ?>" class="user-icon"><i class="fa fa-user"></i>										<span class="hidden-xs hidden-sm hidden-md"><?php esc_html_e('My Account', 'woocom'); ?></span></a></li>
+	<?php }
+	else { ?>
+		<li class="Register-icon"><a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') )); ?>" title="<?php esc_attr__('Login/Register','woocom'); ?>" class="user-icon"><i class="fa fa-user-plus"></i><span class="hidden-xs hidden-sm hidden-md"><?php esc_html_e('Login/ Register', 'woocom'); ?></span></a></li>
+	<?php } ?>
+
 							</ul>
 						</div>
 					</div>
@@ -102,36 +98,21 @@
 							<ul>
 								<li class="main-search">
 									<div class="header_search_toggle desktop-view">
-										<form>
+										<form action="<?php home_url('/')?>">
 											<div class="search-box">
-												<input class="input-text" type="text" placeholder="Search Here...">
-												<button class="search-btn"><i class="fa fa-search"></i></button>
+												<input class="input-text" type="text" name="s" placeholder="Search Here...">
+												<button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
 											</div>
 										</form>
 									</div>
 								</li>
 
-								<li class="cart-icon"> <a href="#"><span><i class="fa fa-shopping-cart"></i> <small class="cart-notification">0</small> </span> </a>
+								<li class="cart-icon"> <a class="close-iconstyle" href="#"><span><i class="fa fa-shopping-cart"></i> <small class="cart-notification"><?php  echo wp_kses_data ( WC()->cart->get_cart_contents_count() ); ?></small> </span> </a>
 									<div class="cart-dropdown header-link-dropdown">
-										<ul class="cart-list link-dropdown-list">
-											<li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
-												<div class="media"> <a class="pull-left"> <img alt=" " src="images/products/item-small-1.jpg"></a>
-													<div class="media-body"> <span><a>Summer Women Nice Cloth</a></span>
-														<p class="cart-price">$29.99</p>
-													</div>
-												</div>
-											</li>
-											<li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
-												<div class="media"> <a class="pull-left"> <img alt=" " src="images/products/item-small-2.jpg"></a>
-													<div class="media-body"> <span><a>Summer Women Nice Cloth</a></span>
-														<p class="cart-price">$29.99</p>
-													</div>
-												</div>
-											</li>
-										</ul>
-										<p class="cart-sub-totle"> <span class="pull-left">Cart Subtotal</span> <span class="pull-right"><strong class="price-box">$29.98</strong></span> </p>
-										<div class="clearfix"></div>
-										<div class="mt-20"> <a href="cart.html" class="btn-color btn">Cart</a> <a href="checkout.html" class="btn-color btn right-side">Checkout</a> </div>
+										<?php // woocommerce_mini_cart(); ?>
+										
+										<?php the_widget( 'WC_Widget_Cart', '' ); ?>
+										
 									</div>
 								</li>
 								<li class="account-icon"> <a href="#"><span><i class="fa fa-heart-o"></i></span></a></li>
