@@ -7,9 +7,16 @@
  * @package woocom
  */
 
+if (is_single()){
+$post_class = 'col-xs-12 single-post-class';
+}else{
+$post_class = 'col-xs-12 ';
+}
+
+
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class(' col-xs-12 '); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class($post_class); ?>>
 	<div class="blog-item">
 		<?php woocom_post_thumbnail(); ?>
 	
@@ -24,7 +31,7 @@
 					endif;
 			?>
 
-			<p>Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.</p>
+			<?php the_content(); ?>
 			<hr>
 			<div class="post-info">
 				<ul>

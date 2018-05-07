@@ -149,5 +149,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 // woocom all function 
 require THEME_PATH. '/inc/woocom-function.php';
 
+// require THEME_PATH. '/inc/woocommerce-overrides.php';
+require THEME_PATH. '/inc/custom-comments.php';
+
 
 

@@ -129,3 +129,102 @@ div#content {
 .single-product-sale_flash {
     left: 15px;
 }
+.woocommerce div.product .woocommerce-product-rating {
+    margin-bottom: 10px;
+}
+.woocommerce div.product form.cart .variations label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.woocommerce div.product form.cart .variations {
+    margin-bottom: 0;
+}
+
+a.reset_variations {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    overflow: hidden;
+}
+.product-detail-main .product-item-details .bottom-detail {
+    display: inline-block;
+    padding: 0;
+}
+.single_variation_wrap {
+    margin-top: 20px;
+}
+.woocommerce-variation-price {
+    margin: 0 30px 10px;
+}
+.woocommerce-variation-price ins {
+    float: left;
+    margin-right: 10px;
+}
+.product-item {
+    min-height: 360px;
+}
+.nav-tabs > li {
+    margin-bottom: 0px;
+    outline: 0;
+}
+.product-detail-tab .nav > li > a ,
+.product-detail-tab .nav > li > a:hover {
+    margin-left: 0;
+    border: none;
+    padding-left: 0;
+}
+
+.product-detail-tab .nav > li.active  > a,
+.product-detail-tab .nav > li.active  > a:focus,
+.product-detail-tab .nav > li.active  > a:hover {
+    outline: 0;
+    border: 0;
+    color: #EA232A;
+}
+
+div#comments ul > li {
+    padding-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e1e1e1;
+    border-top: none;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+ul.children,
+div#comments ul.child-comment {
+    margin-left: 63px;
+}
+div#comments .post-info li {
+    min-width: 80px;
+    /* width: 100%; */
+}
+.woocommerce #reviews #comments ol.commentlist #respond {
+    padding: 15px;
+    margin: 20px 0 30px 50px;
+    overflow: hidden;
+}
+.woocommerce #reviews #comment {
+    width: 100%;
+}
+p.logged-in-as {
+    overflow: hidden;
+    width: 100%;
+    padding-left: 15px;
+}
+.comment-user {
+    width: 100%;
+    max-width: 50px;
+}
+.comment-detail {
+    padding-bottom: 10px;
+    max-width: calc(100% - 75px);
+    float: left;
+}
+
+.woocommerce #reviews #comments ol.commentlist li img.avatar {
+    position: relative;
+    width: 100%; 
+}
