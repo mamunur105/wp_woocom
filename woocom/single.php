@@ -21,7 +21,7 @@ get_header();
 		      	<div class="col-md-9 col-sm-8 pb-xs-60">
 		      		<div class="blog-listing">
 		      			<div class="row">
-		      				  		<?php
+		      				  	<?php
 									if ( have_posts() ) :
 										/* Start the Loop */
 										while ( have_posts() ) :
@@ -45,12 +45,11 @@ get_header();
 										get_template_part( 'template-parts/content', 'none' );
 
 									endif;
-									?>
+								?>
 		      			</div>
 		      			
 		      		</div>
 		      	</div>
-
 
 		      	<?php get_sidebar(); ?>
 

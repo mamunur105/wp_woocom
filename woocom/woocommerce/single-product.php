@@ -22,7 +22,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
+
 	<?php
+	/**
+	*
+	* page_banner_and_breadcrumb
+	*
+	* @hooked xpent_banner_and_breadcrumb_products - 10
+	*
+	*
+	**/
+		do_action( 'page_banner_and_breadcrumb' );
+
 		/**
 		 * woocommerce_before_main_content hook.
 		 *

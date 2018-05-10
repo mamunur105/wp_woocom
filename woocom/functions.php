@@ -145,6 +145,9 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+/////////////////
+require THEME_PATH. '/plugin/tgm/tgm-custom.php';
+// require THEME_PATH. '/plugin/tgm/class-tgm-plugin-activation.php';
 
 // woocom all function 
 require THEME_PATH. '/inc/woocom-function.php';

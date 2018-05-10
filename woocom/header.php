@@ -31,10 +31,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="shortcut icon" href="<?php echo THEME_URI ?>/images/favicon.png">
-	<link rel="apple-touch-icon" href="<?php echo THEME_URI ?>/images/apple-touch-icon.html">
-	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo THEME_URI ?>/images/apple-touch-icon-72x72.html">
-	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo THEME_URI ?>/images/apple-touch-icon-114x114.html">
-
+	
 	<?php wp_head(); ?>
 </head>
 <?php $ishome = is_front_page() ? ' common-home ':' ' ?>
@@ -249,45 +246,7 @@
 											'menu_id'        => 'menu-main',
 										 ));
 										?>
-								<!-- <div class="mobilemenu-content">
-
-									<ul class="" id="menu-main">
-										<li>
-											<a href="index.html">Home</a>
-										</li>
-										<li>
-											<a href="shop.html">Shop</a>
-										</li>
-										<li>
-											<a href="about.html">About</a>
-										</li>
-										<li>
-											<a href="blog.html">Blog</a>
-										</li>
-										<li>
-											<a href="contact.html">Contact</a>
-										</li>
-										<li class="level">
-											<span class="opener plus"></span>
-											<a class="page-scroll">Pages</a>
-											<div class="megamenu mobile-sub-menu">
-												<div class="megamenu-inner-top">
-													<ul class="sub-menu-level1">
-														<li class="level2">
-															<ul class="sub-menu-level2 ">
-																<li class="level3"><a href="account.html">Account</a></li>
-																<li class="level3"><a href="checkout.html">Checkout</a></li>
-																<li class="level3"><a href="404.html">404 Error</a></li>
-																<li class="level3"><a href="single-blog.html">Single Blog</a></li>
-																<li class="level3"><a href="product-page.html">Product Details</a></li>
-															</ul>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</div> -->
+								
 							</div>
 						</div>
 					</div>

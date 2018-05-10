@@ -1,11 +1,12 @@
 <?php 
+
 add_filter('comment_form_default_fields','comment_form_edit');
-function comment_form_edit($drubo){
-  $drubo['author'] = '<div class="col-sm-4 mb-30"><input name="author" required="" id="name" placeholder="Your name" class="form-control" type="text" ></div>';
-  $drubo['email'] ='<div class="col-sm-4 mb-30"><input name="email" required="" id="email" placeholder="Email" class="form-control" type="text" ></div>';
-  $drubo['url'] = '<div class="col-sm-4 mb-30"><input name="url" class="form-control" type="text" placeholder="Website" /></div>';
-  $drubo['comment_field'] ='<div class="col-xs-12 mb-30"><textarea cols="30" rows="3" name="comment"  placeholder="Message" required="required"  id="message" placeholder="Your message here" rows="6" class="form-control" ></textarea></div>';
-  return $drubo;
+function comment_form_edit($xpent){
+  $xpent['author'] = '<div class="col-sm-4 mb-30"><input name="author" required="" id="name" placeholder="Your name" class="form-control" type="text" ></div>';
+  $xpent['email'] ='<div class="col-sm-4 mb-30"><input name="email" required="" id="email" placeholder="Email" class="form-control" type="text" ></div>';
+  $xpent['url'] = '<div class="col-sm-4 mb-30"><input name="url" class="form-control" type="text" placeholder="Website" /></div>';
+  $xpent['comment_field'] ='<div class="col-xs-12 mb-30"><textarea cols="30" rows="3" name="comment"  placeholder="Message" required="required"  id="message" placeholder="Your message here" rows="6" class="form-control" ></textarea></div>';
+  return $xpent;
 }
 // second  stape 
                    
@@ -14,18 +15,18 @@ function comment_form_edit($drubo){
 add_filter('comment_form_defaults','xpent_comment_from_defaults');
 function xpent_comment_from_defaults($drubo){
     if( is_user_logged_in() ) {
-        $drubo['comment_field'] ='<div class="col-xs-12 mb-30"><textarea cols="30" rows="3" name="comment"  placeholder="Message" required="required"  id="message" placeholder="Your message here" rows="6" class="form-control" ></textarea></div>';          
+        $xpent['comment_field'] ='<div class="col-xs-12 mb-30"><textarea cols="30" rows="3" name="comment"  placeholder="Message" required="required"  id="message" placeholder="Your message here" rows="6" class="form-control" ></textarea></div>';          
     }else{
-        $drubo['comment_field'] = '';
+        $xpent['comment_field'] = '';
     }
-    $drubo['comment_notes_before'] = '';
-    $drubo['title_reply'] = 'leave a comment';
-    $drubo['title_reply_before'] = '<div class="col-xs-12"><h4>';
-    $drubo['title_reply_after'] = '</h4></div>';
-    $drubo['submit_button'] = '<div class="col-xs-12"><button class="btn-color" name="%1$s" type="submit" value="POST COMMENT" >send message</button></div>';
+    $xpent['comment_notes_before'] = '';
+    $xpent['title_reply'] = 'leave a comment';
+    $xpent['title_reply_before'] = '<div class="col-xs-12"><h4>';
+    $xpent['title_reply_after'] = '</h4></div>';
+    $xpent['submit_button'] = '<div class="col-xs-12"><button class="btn-color" name="%1$s" type="submit" value="POST COMMENT" >send message</button></div>';
                  
     // $drubo['submit_field'] = '<div class="form-submit text-right"> %1$s %2$s </div>';
-    return $drubo;
+    return $xpent;
 }
 ?>
 
@@ -63,3 +64,14 @@ function xpent_comment_list($comment, $args, $depth){
 
   <?php 
 }
+
+// h 
+
+
+function wpb_move_comment_field_to_bottom( $fields ) {
+  $comment_field = $fields['comment'];
+  unset( $fields['comment'] );
+  $fields['comment'] = $comment_field;
+  return $fields;
+}
+add_filter( 'comment_form_fields', 'wpb_move_comment_field_to_bottom' );

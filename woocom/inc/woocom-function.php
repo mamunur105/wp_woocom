@@ -411,8 +411,8 @@ if ( ! function_exists( 'wc_dropdown_variation_attribute_options' ) ) {
 
 
 function cm_redirect_users_by_role() {
-    if ( is_product() ){ 
-      remove_action('woocommerce_sidebar','woocommerce_get_sidebar',10);
+    if ( is_product()){ 
+       remove_action('woocommerce_sidebar','woocommerce_get_sidebar',10);
     }
 } // cm_redirect_users_by_role
 add_action( 'wp', 'cm_redirect_users_by_role' );
@@ -439,11 +439,47 @@ function xpent_output_content_wrapper_end(){?>
     </div>
   </div>
 </section>
-<section class="ptb-60 cccc">
+<section class="pb-60 cccc">
   <div class="container">
     <div class="row">
 
 <?php }
 
 
+add_action('woocommerce_after_single_product_summary','xpent_before_related_products',19);
+function xpent_before_related_products(){?>
+    <div class="col-xs-12">
+<?php }
+
+add_action('woocommerce_after_single_product_summary','xpent_after_related_products',21);
+function xpent_after_related_products(){?>
+     </div>
+<?php }
+
+remove_action('woocommerce_before_main_content','woocommerce_breadcrumb',20);
+// breadcrumb 
+add_action('page_banner_and_breadcrumb','xpent_banner_and_breadcrumb_products',10);
+function xpent_banner_and_breadcrumb_products(){?>
+
+  <div class="banner inner-banner align-center">
+    <div class="container">
+      <section class="banner-detail">
+        <h1 class="banner-title"><?php the_title()?></h1>
+        <div class="bread-crumb right-side">
+          
+            <?php
+            $args = array(
+                'wrap_before' => '<ul>',
+                'wrap_after'  => '</ul>',
+                'before' => '<li>',
+                'after' => '</li>',
+              );
+
+             woocommerce_breadcrumb($args)?>
+        
+        </div>
+      </section>
+    </div>
+  </div>
+<?php }
 
