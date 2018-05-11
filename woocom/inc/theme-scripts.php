@@ -14,7 +14,7 @@ function woocom_scripts() {
 	wp_enqueue_style( 'woocom-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'woocom-responsive', THEME_URI.'/css/responsive.css' );
 
-// theme js 
+	// theme js 
 	wp_enqueue_script( 'bootstrap', THEME_URI.'/js/bootstrap.min.js', array('jquery'), '', true );
 	wp_enqueue_script( 'jquery-ui', THEME_URI.'/js/jquery-ui.min.js', array('jquery'), '', true );
 	wp_enqueue_script( 'fotorama', THEME_URI.'/js/fotorama.js', array('jquery'), '', true );
@@ -27,10 +27,13 @@ function woocom_scripts() {
 
 	wp_enqueue_script( 'woocom-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	
+
+
 }
 add_action( 'wp_enqueue_scripts', 'woocom_scripts' );
 

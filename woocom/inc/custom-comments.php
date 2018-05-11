@@ -49,6 +49,7 @@ function xpent_comment_list($comment, $args, $depth){
                   <li><?php comment_date('d F Y'); ?></li>
                   <li> <?php comment_reply_link(array_merge($args,
                           array(
+                            'reply_text' => '<i class="fa fa-reply"></i> Reply',
                             'depth' => $depth,
                             'max_depth' => $args['max_depth']
                           )

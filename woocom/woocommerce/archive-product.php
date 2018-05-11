@@ -63,7 +63,7 @@ do_action( 'woocommerce_before_main_content' );
             <div class="row">
               <div class="col-md-6">
                 <div class="view">
-                  <div class="list-types grid active "> 
+                  <!-- <div class="list-types grid active "> 
                     <a href="shop.html">
                       <div class="grid-icon list-types-icon"></div>
                     </a> 
@@ -72,7 +72,7 @@ do_action( 'woocommerce_before_main_content' );
                     <a href="shop-list.html">
                       <div class="list-icon list-types-icon"></div>
                     </a> 
-                  </div>
+                  </div> -->
                 </div>
                 <div class="short-by float-right-sm"> <span>Sort By</span>
                   <div class="select-item">

@@ -407,16 +407,14 @@ if ( ! function_exists( 'wc_dropdown_variation_attribute_options' ) ) {
   }
 }
 
-
-
-
-function cm_redirect_users_by_role() {
-    if ( is_product()){ 
-       remove_action('woocommerce_sidebar','woocommerce_get_sidebar',10);
-    }
-} // cm_redirect_users_by_role
-add_action( 'wp', 'cm_redirect_users_by_role' );
-
+if (class_exists( 'WooCommerce' )){
+  function cm_redirect_users_by_role() {
+      if ( is_product()){ 
+         remove_action('woocommerce_sidebar','woocommerce_get_sidebar',10);
+       }
+  } // cm_redirect_users_by_role
+  add_action( 'wp', 'cm_redirect_users_by_role' );
+}
 
 // // add New woocommerce_output_content_wrapper 
 add_action('woocommerce_after_single_product_summary','xpent_output_content_wrapper',9);
@@ -459,7 +457,7 @@ function xpent_after_related_products(){?>
 remove_action('woocommerce_before_main_content','woocommerce_breadcrumb',20);
 // breadcrumb 
 add_action('page_banner_and_breadcrumb','xpent_banner_and_breadcrumb_products',10);
-function xpent_banner_and_breadcrumb_products(){?>
+function xpent_banner_and_breadcrumb_products(){  ?>
 
   <div class="banner inner-banner align-center">
     <div class="container">
@@ -483,3 +481,5 @@ function xpent_banner_and_breadcrumb_products(){?>
   </div>
 <?php }
 
+// remove_action('woocommerce_single_product_summary','add_compare_link',35);
+// add_action( 'woocommerce_single_product_summary', array( $this, 'add_compare_link' ), 35 );
