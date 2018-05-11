@@ -163,8 +163,9 @@ if  (isset($_POST['woocommerce-sort-by-columns']) && (($_COOKIE['shop_pageResult
 			//Add as many of these as you like, -1 shows all products per page
 			  //  ''       => __('Results per page', 'woocommerce'),
 				'20' 		=> __('20', 'woocommerce'),
-				'10' 		=> __('10', 'woocommerce'),
-				'8' 		=> __('8', 'woocommerce'),
+				'12' 		=> __('12', 'woocommerce'),
+        '8'     => __('8', 'woocommerce'),
+				'4' 		=> __('4', 'woocommerce'),
 				'-1' 		=> __('All', 'woocommerce'),
 			));
 
@@ -191,7 +192,7 @@ function dl_sort_by_page($count) {
 }
  
 add_filter('loop_shop_per_page','dl_sort_by_page');
-// add_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_page_ordering', 20 );
+
 
 // woocom  single page 
 
@@ -419,14 +420,14 @@ if (class_exists( 'WooCommerce' )){
 // // add New woocommerce_output_content_wrapper 
 add_action('woocommerce_after_single_product_summary','xpent_output_content_wrapper',9);
 function xpent_output_content_wrapper(){ ?>
-    </div>
-  </div>
-</section>
-<section class="pb-60 pb-xs-30">
-    <div class="container">
-      <div class="product-detail-tab">
-        <div class="row">
-          <div class="col-md-12">
+        </div>
+      </div>
+    </section>
+    <section class="pb-60 pb-xs-30">
+        <div class="container">
+          <div class="product-detail-tab">
+            <div class="row">
+              <div class="col-md-12">
 <?php }
 
 
@@ -447,11 +448,16 @@ function xpent_output_content_wrapper_end(){?>
 add_action('woocommerce_after_single_product_summary','xpent_before_related_products',19);
 function xpent_before_related_products(){?>
     <div class="col-xs-12">
+      <div class="product-slider-main position-r">
+        <div class="owl-carousel pro_cat_slider">
+
 <?php }
 
 add_action('woocommerce_after_single_product_summary','xpent_after_related_products',21);
 function xpent_after_related_products(){?>
-     </div>
+        </div>
+      </div>
+    </div>
 <?php }
 
 remove_action('woocommerce_before_main_content','woocommerce_breadcrumb',20);
@@ -481,5 +487,6 @@ function xpent_banner_and_breadcrumb_products(){  ?>
   </div>
 <?php }
 
-// remove_action('woocommerce_single_product_summary','add_compare_link',35);
-// add_action( 'woocommerce_single_product_summary', array( $this, 'add_compare_link' ), 35 );
+
+
+// add_action('woocommerce_single_product_summary','',65);

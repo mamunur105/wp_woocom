@@ -151,6 +151,19 @@ if ( have_posts() ) {
 ?>
 </div>
 <?php
+/*
+*
+*
+*
+*
+*
+*
+*
+*/
+do_action( 'wc_bottom_product_widget' );
+
+
+
 /**
  * Hook: woocommerce_after_main_content.
  *
