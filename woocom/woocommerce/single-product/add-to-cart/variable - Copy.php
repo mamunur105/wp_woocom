@@ -13,9 +13,11 @@
  * @see 	https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.4.0
+ * @version 3.0.0
  */
-defined( 'ABSPATH' ) || exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 global $product;
 
@@ -23,7 +25,7 @@ $attribute_keys = array_keys( $attributes );
 
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
-<form class="variations_form cart new-class" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo htmlspecialchars( wp_json_encode( $available_variations ) ) ?>">
+<form class="variations_form cart new-class" action="<?php echo esc_url( get_permalink() ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo htmlspecialchars( wp_json_encode( $available_variations ) ) ?>">
 	<?php do_action( 'woocommerce_before_variations_form' ); ?>
 
 	<?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
@@ -34,20 +36,14 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				<?php foreach ( $attributes as $attribute_name => $options ) : ?>
 				<!-- <div class="product-size select-arrow mb-20 mt-30"> -->
 					<tr>
-						<td class="value"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); ?></label></td> 
+						<td class="value"><label for="<?php echo sanitize_title( $attribute_name ); ?>"><?php echo wc_attribute_label( $attribute_name ); ?></label></td> 
 					</tr>
 					<tr>
 						
 						<td class="value">
 							<?php
-								$selected = isset( $_REQUEST[ 'attribute_' . $attribute_name ] ) ? wc_clean( urldecode( wp_unslash( $_REQUEST[ 'attribute_' . $attribute_name ] ) ) ) : $product->get_variation_default_attribute( $attribute_name ); // WPCS: input var ok, CSRF ok, sanitization ok.
-
-								wc_dropdown_variation_attribute_options( array( 
-									'options' => $options, 
-									'attribute' => $attribute_name, 
-									'product' => $product, 
-									'selected' => $selected 
-								) );
+								$selected = isset( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) ? wc_clean( stripslashes( urldecode( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) ) ) : $product->get_variation_default_attribute( $attribute_name );
+								wc_dropdown_variation_attribute_options( array( 'options' => $options, 'attribute' => $attribute_name, 'product' => $product, 'selected' => $selected ) );
 								echo end( $attribute_keys ) === $attribute_name ? apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) : '';
 							?>
 						</td>

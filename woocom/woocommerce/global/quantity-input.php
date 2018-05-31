@@ -13,7 +13,7 @@
  * @see 	    https://docs.woocommerce.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     3.3.0
+ * @version     3.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -34,7 +34,20 @@ if ( $max_value && $min_value === $max_value ) {
 	  <div class="custom-qty">
 	    <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;" class="reduced items" type="button"> <i class="fa fa-minus"></i> </button>
 	    <!-- <input type="text" class="input-text qty" title="Qty" value="<?php echo esc_attr( $input_value ); ?>" maxlength="8" id="qty" name="qty"> -->
-		<input type="text"  id="qty" class="input-text qty text" step="<?php echo esc_attr( $step ); ?>" min="<?php echo esc_attr( $min_value ); ?>" max="<?php echo esc_attr( 0 < $max_value ? $max_value : '' ); ?>" name="<?php echo esc_attr( $input_name ); ?>" value="<?php echo esc_attr( $input_value ); ?>" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" size="4" pattern="<?php echo esc_attr( $pattern ); ?>" inputmode="<?php echo esc_attr( $inputmode ); ?>" aria-labelledby="<?php echo ! empty( $args['product_name'] ) ? sprintf( esc_attr__( '%s quantity', 'woocommerce' ), $args['product_name'] ) : ''; ?>" />
+	    <?php $labelledby = ! empty( $args['product_name'] ) ? sprintf( __( '%s quantity', 'woocommerce' ), strip_tags( $args['product_name'] ) ) : '';?>
+		<input type="text"  
+		id="qty" 
+		class="input-text qty text" 
+		step="<?php echo esc_attr( $step ); ?>" 
+		min="<?php echo esc_attr( $min_value ); ?>" 
+		max="<?php echo esc_attr( 0 < $max_value ? $max_value : '' ); ?>" 
+		name="<?php echo esc_attr( $input_name ); ?>" 
+		value="<?php echo esc_attr( $input_value ); ?>" 
+		title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" 
+		size="4" 
+		pattern="<?php echo esc_attr( $pattern ); ?>" 
+		inputmode="<?php echo esc_attr( $inputmode ); ?>" 
+		aria-labelledby="<?php  echo esc_attr( $labelledby );  ?>" />
 
 	    <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items" type="button"> <i class="fa fa-plus"></i> </button>
 	  </div>

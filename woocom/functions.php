@@ -155,5 +155,98 @@ require THEME_PATH. '/inc/woocom-function.php';
 // require THEME_PATH. '/inc/woocommerce-overrides.php';
 require THEME_PATH. '/inc/custom-comments.php';
 
+require THEME_PATH. '/inc/walker_menu.php';
+// catagory.php
+require THEME_PATH. '/inc/catagory.php';
 
 
+
+
+add_action( 'init', 'drubo_custompost_type' );
+function drubo_custompost_type() {
+ 	//Create a custom post for Portfolio...
+ 	$labels = array(
+ 				'name'					=> 'Portfolio',
+ 				'singular_name'			=> 'Portfolio',
+ 				'add_new'				=> 'Add Portfolio',
+ 				'all_items'				=> 'All Portfolio',
+ 				'add_new_item'			=> 'Add Portfolio',
+ 				'edit_item'				=> 'Edit Portfolio',
+ 				'new_item'				=> 'New Portfolio',
+ 				'view_item'				=> 'View Portfolio',
+ 				'search_item'			=> 'Search Portfolio Post',
+ 				'not_found'				=> 'No Portfolio Found',
+ 				'not_found_in_trash' 	=> 'No Portfolio In Trash',
+ 				'parent_item_colon'		=> 'Parent Portfolio'
+ 			);
+ 	// Create a Aruments Array that Store all argumens of posts..
+ 	$args = array(
+ 			'labels'				=> $labels,
+ 			'menu_icon'				=> 'fa fa-briefcase',
+ 			// dashicons-art
+ 			'public'				=> true,
+ 			'has_archive'			=> true,
+ 			'publicly_queryable'	=> true,
+ 			'query_var'				=> true,
+ 			'rewrite'				=> true,
+ 			'capability-type'		=> 'post',
+ 			'hierarchical'			=> true,
+ 			// $Supports Array Create Custome From Fiels In WP-Dashbord,Defults are (title,Editor)
+ 			'supports'				=> array(
+ 										'title',
+ 										'editor',
+ 										'excerpt',
+ 										'thumbnail',
+ 										'comments'
+ 									),
+ 			'taxonomies'			=> array( ''),
+ 			'menu_position'			=> 5,
+ 			// 'exclude_from_search'	=> false
+ 		);
+ 	register_post_type( 'portfolio', $args );
+}
+/**
+ * Create Custom Place Holders..
+ */
+add_filter('enter_title_here', 'drubo_title_placeholder', 0, 2 );
+function drubo_title_placeholder( $title , $post ){
+	if( $post->post_type == 'portfolio' ) {
+		$cx_title = "Enter Portfolio Title..";
+		return $cx_title;
+	} 
+
+	return $title;
+}
+function drubo_portfolio_taxonomies_type() {
+	// add new taxonomy hierarchical
+	$labels = array(
+		'name' 				=> __('Portfolio Categories', 'reveal'),
+		'singular_name' 	=> __('Portfolio Category', 'reveal'),
+		'search_items' 		=> __('Search Portfolio Category', 'reveal'),
+		'all_items' 		=> __('All Portfolio Categories', 'reveal'),
+		'parent_item' 		=> __('Parent Portfolio Category', 'reveal'),
+		'parent_item_colon' => __('Parent Portfolio Category:', 'reveal'),
+		'edit_item' 		=> __('Edit Portfolio Category', 'reveal'),
+		'update_item' 		=> __('Update Portfolio Category', 'reveal'),
+		'add_new_item' 		=> __('Add New Portfolio Category', 'reveal'),
+		'new_item_name' 	=> __('New Portfolio Category Name', 'reveal'),
+		'menu_name' 		=> __('Portfolio Categories', 'reveal')
+	);
+	$args = array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'show_ui' => true,
+		'has_archive'	=> true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => array('slug' => 'portfolio-category')
+	);
+	register_taxonomy('portfolio-category', array('portfolio'), $args);
+	// add new taxonomy NON hierarchical
+	register_taxonomy('portfolio_tags', 'portfolio', array(
+		'label' => 'Portfolio Tags',
+		'rewrite' => array('slug' => 'portfolio-tags'),
+		'hierarchical' => false
+	));
+}
+add_action('init', 'drubo_portfolio_taxonomies_type');

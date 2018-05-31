@@ -2189,7 +2189,7 @@ del.price.old-price {
 .listing-box ul li a {
 	padding: 6px 17px;
 	display: inline-block;
-	width: 100%;
+	/*width: 100%;*/
 }
 .listing-box ul li:first-child a {
 	padding-top: 0;

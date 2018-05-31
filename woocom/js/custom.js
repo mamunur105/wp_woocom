@@ -213,7 +213,7 @@
       max: 800,
       values: [ 75, 500 ],
       slide: function( event, ui ) {
-      $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      $( "#amount" ).val( "$" + ui.values[ 0 ] + " dddd- $" + ui.values[ 1 ] );
       }
       });
       $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
@@ -272,6 +272,15 @@ $(document).ready(function(){
   });
 
 });
+
+// $( "#mail_box" ).click(function(){
+//     $( ".fixed_class" ).addClass("fixed");
+// });
+// $( ".cross" ).click(function(){
+//     $( ".fixed_class" ).removeClass("fixed");
+// });
+
+
 
 
 })(jQuery);

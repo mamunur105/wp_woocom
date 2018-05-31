@@ -100,8 +100,10 @@ if ( ! comments_open() ) {
 
 
 					$comment_form['comment_field'] .= '<div class="col-sm-12 mb-30"><textarea id="comment" name="comment" class="form-control" placeholder="Message"   cols="45" rows="8" aria-required="true" required></textarea></div>';
-
+					
+					// if (is_user_logged_in()) {
 					comment_form( apply_filters( 'woocommerce_product_review_comment_form_args', $comment_form ) );
+					// }
 				?>
 			</div>
 		</div>

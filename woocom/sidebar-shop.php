@@ -15,21 +15,7 @@ if ( ! is_active_sidebar( 'sidebar-woocom' ) ) {
 <div class="col-md-3 col-sm-4 mb-xs-30">
     <div class="sidebar-block">
         <?php dynamic_sidebar( 'sidebar-woocom' ); ?>
-        <div class="sidebar-box listing-box mb-40"> <span class="opener plus"></span>
-            <div class="sidebar-title">
-                <h3>Categories</h3>
-            </div>
-            <div class="sidebar-contant">
-                <ul>
-                    <li><a>Clothing <span>(21)</span></a></li>
-                    <li><a>Shoes <span>(05)</span></a></li>
-                    <li><a>Jewellery <span>(10)</span></a></li>
-                    <li><a>Home & Furniture <span>(12)</span></a></li>
-                    <li><a>Bags <span>(18)</span></a></li>
-                    <li><a>Accessories <span>(70)</span></a></li>
-                </ul>
-            </div>
-        </div>
+        
         <div class="sidebar-box gray-box mb-40"> <span class="opener plus"></span>
             <div class="sidebar-title">
                 <h3>Shop by</h3>
@@ -38,16 +24,10 @@ if ( ! is_active_sidebar( 'sidebar-woocom' ) ) {
                 <div class="price-range mb-30">
                     <div class="inner-title">Price range</div>
                     <input class="price-txt" type="text" id="amount">
+                    <!-- <input class="price-txt" type="text" id="amount2"> -->
                     <div id="slider-range"></div>
                 </div>
-                <div class="mb-20">
-                    <div class="inner-title">Category</div>
-                    <ul>
-                        <li><a>Bags 2 <span>(0)</span></a></li>
-                        <li><a>Clothing x2 2 <span>(05)</span></a></li>
-                        <li><a>Lingerie 2 <span>(10)</span></a></li>
-                    </ul>
-                </div>
+                
                 <div class="mb-20">
                     <div class="inner-title">Color</div>
                     <ul>

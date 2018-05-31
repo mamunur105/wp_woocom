@@ -11,7 +11,6 @@ remove_action('woocommerce_after_shop_loop_item','woocommerce_template_loop_add_
 remove_action('woocommerce_before_shop_loop_item','woocommerce_template_loop_product_link_open',10);
 remove_action('woocommerce_after_shop_loop_item','woocommerce_template_loop_product_link_close',5);
 
-
 // filter hooks 
 add_filter('woocommerce_show_page_title','xpent_show_page_title');
 
@@ -55,8 +54,13 @@ function xpent_template_loop_product_thumbnail(){ ?>
 	</div>
 </div>
 <?php }
-
-
+// 
+// add_filter('loop_shop_columns', 'loop_columns');
+// if (!function_exists('loop_columns')) {
+//   function loop_columns() {
+//     return 3; // 3 products per row
+//   }
+// }
 // remove defaul prize 
 remove_action('woocommerce_after_shop_loop_item_title','woocommerce_template_loop_price',10);
 // remove reating 
@@ -217,7 +221,7 @@ function woocommerce_single_product_images() { ?>
 				<?php 
 				   global $product;
 
-				    $attachment_ids = $product->get_gallery_attachment_ids();
+				    $attachment_ids = $product->get_gallery_image_ids();
 
 				    foreach( $attachment_ids as $attachment_id ) {
 				        $image_link = wp_get_attachment_url( $attachment_id ); ?>
@@ -260,7 +264,7 @@ function product_rating_single_page(){ ?>
 // woocommerce_before_variations_form 
 add_action('woocommerce_before_variations_form','woocom_before_variations_form',10);
 function woocom_before_variations_form(){ ?>
-<div class="product-size select-arrow mb-20 mt-30">
+<div class="product-size select-arrow mb-0 mt-30">
 <?php }
 add_action('woocommerce_after_variations_form','woocom_after_variations_form',10);
 function woocom_after_variations_form(){ ?>
@@ -332,7 +336,7 @@ function before_product_content(){ ?>
 
 add_action('woocommerce_after_single_product_summary','after_product_content',5);
 function after_product_content(){ ?>
-        
+
         </div>
       </div>
     </div>
@@ -341,9 +345,7 @@ function after_product_content(){ ?>
 
 <?php }
 
-
 // 
-
 if ( ! function_exists( 'wc_dropdown_variation_attribute_options' ) ) {
 
   /**
@@ -445,21 +447,6 @@ function xpent_output_content_wrapper_end(){?>
 <?php }
 
 
-add_action('woocommerce_after_single_product_summary','xpent_before_related_products',19);
-function xpent_before_related_products(){?>
-    <div class="col-xs-12">
-      <div class="product-slider-main position-r">
-        <div class="owl-carousel pro_cat_slider">
-
-<?php }
-
-add_action('woocommerce_after_single_product_summary','xpent_after_related_products',21);
-function xpent_after_related_products(){?>
-        </div>
-      </div>
-    </div>
-<?php }
-
 remove_action('woocommerce_before_main_content','woocommerce_breadcrumb',20);
 // breadcrumb 
 add_action('page_banner_and_breadcrumb','xpent_banner_and_breadcrumb_products',10);
@@ -489,4 +476,42 @@ function xpent_banner_and_breadcrumb_products(){  ?>
 
 
 
-// add_action('woocommerce_single_product_summary','',65);
+add_action('woocommerce_single_product_summary','comp_wish_email',65);
+
+function comp_wish_email(){ ?>
+
+<div class="bottom-detail">
+    <ul>
+      <?php  if(shortcode_exists('ti_wishlists_addtowishlist')):?>
+      <li><i class="fa fa-heart-o"></i><?php echo do_shortcode("[ti_wishlists_addtowishlist loop=yes]");?>Wishlist</li>
+       <?php endif; ?>
+       <?php  if(shortcode_exists('yith_compare_button')):?>
+      <li><i class="fa fa-random"></i><?php echo do_shortcode("[yith_compare_button]");?>Compare</li>
+       <?php endif; ?>
+      <!-- <li id="mail_box" ><a ><i class="fa fa-envelope-o"></i><span></span>Email to Friends</a></li> -->
+    </ul>
+</div>
+
+<!-- <div class="fixed_class">
+  <span class="cross">&#10005;</span>
+   <form action="<?php echo THEME_URI.'/inc/mailfun.php'?>" method="POST">
+    <div class="form-group">
+      <input type="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div> -->
+<?php }
+
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+add_action( 'woocommerce_after_single_product_summary', 'wc_output_related_products', 20);
+function wc_output_related_products(){
+  $args = array( 
+        'posts_per_page' => 8,  
+        // 'columns' => 4,  
+        // 'orderby' => 'rand' 
+ ); 
+    woocommerce_related_products( apply_filters( 'woocommerce_output_related_products_args', $args ) ); 
+}
+
+// remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);

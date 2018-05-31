@@ -11,9 +11,8 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.0.0
+ * @version 3.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,7 +30,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 $columns = ' col-md-4 col-xs-6 plr-20 ';
 
 ?>
-<div <?php post_class($columns); ?>>
+<div <?php wc_product_class($columns); ?>>
 	<div class="product-item">
 		
 	<?php

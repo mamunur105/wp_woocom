@@ -15,14 +15,21 @@
  * @package 	WooCommerce/Templates
  * @version     2.1.0
  */
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
-do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+do_action( 'woocommerce_before_add_to_cart_form' );  ?>
 
-<p class="cart ddd">
-	<a href="<?php echo esc_url( $product_url ); ?>" rel="nofollow" class="single_add_to_cart_button button alt"><?php echo esc_html( $button_text ); ?></a>
-</p>
+<form class="cart" action="<?php echo esc_url( $product_url ); ?>" method="get">
+
+<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+
+	<!-- <p class="cart ddd"> -->
+		<!-- <a href="<?php // echo esc_url( $product_url ); ?>" rel="nofollow" class="single_add_to_cart_button button alt"><?php //  echo esc_html( $button_text ); ?></a> -->
+		<button type="submit" class="single_add_to_cart_button button alt"><?php echo esc_html( $button_text ); ?></button>
+	<!-- </p> -->
 
 <?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
+</form>
+
+<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
+

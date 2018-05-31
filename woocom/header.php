@@ -17,21 +17,11 @@
 	<!-- SEO Meta
 	================================================== -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta name="distribution" content="global">
-	<meta name="revisit-after" content="2 Days">
-	<meta name="robots" content="ALL">
-	<meta name="rating" content="8 YEARS">
-	<meta name="Language" content="en-us">
-	<meta name="GOOGLEBOT" content="NOARCHIVE">
-
 	<!-- Mobile Specific Metas
 	================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="shortcut icon" href="<?php echo THEME_URI ?>/images/favicon.png">
-	
+
 	<?php wp_head(); ?>
 </head>
 <?php $ishome = is_front_page() ? ' common-home ':' ' ?>
@@ -59,12 +49,12 @@
 					<div class="col-sm-7">
 						<div class="top-link right-side">
 							<ul>
-								<li class="Compare-icon">
+								<!-- <li class="Compare-icon">
 									<a href="#" title="Compare">
 										<i class="fa fa-sign-in"></i>
 										<span class="hidden-xs hidden-sm hidden-md">Compare</span>
 									</a>
-								</li>
+								</li> -->
 
 	<?php if ( is_user_logged_in() ) { ?>
 		<li class="login-icon"><a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') )); ?>" title="<?php esc_attr__('My Account','woocom'); ?>" class="user-icon"><i class="fa fa-user"></i>										<span class="hidden-xs hidden-sm hidden-md"><?php esc_html_e('My Account', 'woocom'); ?></span></a></li>
@@ -238,14 +228,15 @@
 									<i class="fa fa-bars pull-right"></i>
 								</div>
 								<?php
-										wp_nav_menu( array(
-											'menu_class'	=>'nav navbar-nav',
-											'theme_location' => 'menu-main',
-											'container' => 'div',
-											'container_class' => 'mobilemenu-content',
-											'menu_id'        => 'menu-main',
-										 ));
-										?>
+								wp_nav_menu( array(
+									'menu_class'	=>'nav navbar-nav',
+									'theme_location' => 'menu-main',
+									'container' => 'div',
+									'container_class' => 'mobilemenu-content',
+									'menu_id'        => 'menu-main',
+									'walker' => new Walker_Menu(),
+								 ));
+								?>
 								
 							</div>
 						</div>

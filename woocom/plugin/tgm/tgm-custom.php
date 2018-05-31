@@ -78,11 +78,11 @@ function woocom_register_required_plugins() {
 			'slug'      => 'yith-woocommerce-compare',
 			'required'  => true,
 		),
-		// array(
-		// 	'name'      => 'WooCommerce Grid / List toggle',
-		// 	'slug'      => 'woocommerce-grid-list-toggle',
-		// 	'required'  => true,
-		// ),
+		array(
+			'name'      => 'Wc Ajax Product Filter',
+			'slug'      => 'wc-ajax-product-filter',
+			'required'  => true,
+		),
 		
 
 		// This is an example of how to include a plugin bundled with a theme.

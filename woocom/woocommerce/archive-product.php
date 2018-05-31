@@ -13,7 +13,7 @@
  * @see 	    https://docs.woocommerce.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     3.3.0
+ * @version 3.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -60,51 +60,51 @@ do_action( 'woocommerce_before_main_content' );
 	?>
 </header>
 <div class="shorting mb-30">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="view">
-                  <!-- <div class="list-types grid active "> 
-                    <a href="shop.html">
-                      <div class="grid-icon list-types-icon"></div>
-                    </a> 
-                  </div>
-                  <div class="list-types list"> 
-                    <a href="shop-list.html">
-                      <div class="list-icon list-types-icon"></div>
-                    </a> 
-                  </div> -->
-                </div>
-                <div class="short-by float-right-sm"> <span>Sort By</span>
-                  <div class="select-item">
-                  		<?php woocommerce_catalog_ordering()// woocommerce_catalog_ordering() ?>
-                    <!-- <select>
-                      <option value="" selected="selected">Name (A to Z)</option>
-                      <option value="">Name(Z - A)</option>
-                      <option value="">price(low&gt;high)</option>
-                      <option value="">price(high &gt; low)</option>
-                      <option value="">rating(highest)</option>
-                      <option value="">rating(lowest)</option>
-                    </select> -->
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="show-item right-side float-left-sm"> <span>Show</span>
-                  <div class="select-item">
-                  	<?php 	woocommerce_catalog_page_ordering();?>
-                    
-                  </div>
-                  <span>Per Page</span>
-                </div>
-              </div>
-
-            </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="view">
+          <!-- <div class="list-types grid active "> 
+            <a href="shop.html">
+              <div class="grid-icon list-types-icon"></div>
+            </a> 
           </div>
+          <div class="list-types list"> 
+            <a href="shop-list.html">
+              <div class="list-icon list-types-icon"></div>
+            </a> 
+          </div> -->
+        </div>
+        <div class="short-by float-right-sm"> <span>Sort By</span>
+          <div class="select-item">
+          		<?php woocommerce_catalog_ordering()// woocommerce_catalog_ordering() ?>
+            <!-- <select>
+              <option value="" selected="selected">Name (A to Z)</option>
+              <option value="">Name(Z - A)</option>
+              <option value="">price(low&gt;high)</option>
+              <option value="">price(high &gt; low)</option>
+              <option value="">rating(highest)</option>
+              <option value="">rating(lowest)</option>
+            </select> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="show-item right-side float-left-sm"> <span>Show</span>
+          <div class="select-item">
+          	<?php 	woocommerce_catalog_page_ordering();?>
+            
+          </div>
+          <span>Per Page</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 <?php
 
-if ( have_posts() ) {
+if ( woocommerce_product_loop() ) {
 
 	/**
 	 * Hook: woocommerce_before_shop_loop.
@@ -151,17 +151,6 @@ if ( have_posts() ) {
 ?>
 </div>
 <?php
-/*
-*
-*
-*
-*
-*
-*
-*
-*/
-do_action( 'wc_bottom_product_widget' );
-
 
 
 /**
@@ -177,5 +166,8 @@ do_action( 'woocommerce_after_main_content' );
  * @hooked woocommerce_get_sidebar - 10
  */
 // do_action( 'woocommerce_sidebar' );
+
+do_action( 'wc_bottom_product_widget' );
+
 
 get_footer( 'shop' );
