@@ -4,6 +4,7 @@
     $("button.author_info_image").on("click",function(e){
         // preventDefault
         e.preventDefault();
+        $('div.image-show').show();
         var button = $(this);
         var imageuploder = wp.media({
             'title':"Upload author Image ",
@@ -19,7 +20,7 @@
             var image_link = image.url;
             button.next("input.image_link").val(image_link);
             button.parent(".image-show-area").find("img").attr('src',image_link);
-            $('input.widget-control-save').removeAttr('disabled');
+            button.parent().parent().parent('form').find('input.widget-control-save').removeAttr('disabled');
         });
 
     });
@@ -27,15 +28,12 @@
     $("button.clear_image").on("click",function(e){
         // preventDefault
         e.preventDefault();
-        var button = $(this);
-        
-        imageuploder.on("select",function(){
-
-            button.next("input.image_link").val('');
-            button.parent(".image-show-area").find("img").attr('src','');
-            $('input.widget-control-save').removeAttr('disabled');
-        });
-
+     
+        $('div.image-show').hide();
+        // $('input.image_link').val(' ');
+        // $('input.image_link').attr('value') = '';
+        $("input.image_link").attr('value',' ');
+        $(this).parent().parent().parent('form').find('input.widget-control-save').removeAttr('disabled');
     });
     
 

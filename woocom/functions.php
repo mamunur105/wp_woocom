@@ -1,6 +1,7 @@
 <?php
 define('THEME_URI', get_template_directory_uri());
 define('THEME_PATH', get_template_directory());
+define( 'WOO_THEME_OPTIONS', 'woo_option' );
 
 /**
  * woocom functions and definitions
@@ -170,7 +171,7 @@ require THEME_PATH. '/inc/catagory.php';
 require THEME_PATH. '/inc/best-sell.php';
 require THEME_PATH. '/inc/contact-info.php';
 
-
+require THEME_PATH. '/plugin/redux/redux-config.php';
 
 
 

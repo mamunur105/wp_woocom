@@ -25,7 +25,6 @@ class Contact_info extends WP_Widget {
 			<?php if($image):?>
 				<img src="<?php echo $image; ?>" alt="">
 			<?php endif;?>
-
 				<ul>
 					<?php if($description_font && $description ):?>
 						<li>
@@ -33,23 +32,18 @@ class Contact_info extends WP_Widget {
 							<p><?php echo $description ;?></p>
 						</li>
 					<?php endif;?>
-
 					<?php if($email_font && $email ):?>
-
 						<li>
 							<a href="#"><i class="<?php echo $email_font ; ?>"></i></a>
 							<p><?php echo $email ; ?></p>
 						</li>
 					<?php endif;?>
-
 					<?php if($number_font && $number):?>
-
 						<li>
 							<a href="#"><i class="<?php echo $number_font  ; ?> "></i></a>
 							<p><?php echo $number  ; ?></p>
 						</li>
 					<?php endif;?>
-
 				</ul>
 			</div>
 		<?php echo $args["after_widget"] ;

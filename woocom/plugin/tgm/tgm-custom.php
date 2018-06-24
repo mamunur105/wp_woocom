@@ -61,7 +61,12 @@ function woocom_register_required_plugins() {
 		array(
 			'name'      => 'King Composer',
 			'slug'      => 'kingcomposer',
-			'required'  => false,
+			'required'  => true,
+		),
+		array(
+			'name'      => 'Redux',
+			'slug'      => 'redux-framework',
+			'required'  => true,
 		),
 		array(
 			'name'      => 'WooCommerce',

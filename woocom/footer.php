@@ -69,7 +69,7 @@
 			<div class="container">
 				<div class="row"> 
 					<div class="col-md-6 col-sm-6 center-sm">
-						<div class="copy-right">© 2018  All Rights Reserved. Design By <a href="http://themespry.com/">Themespry</a></div>
+						<div class="copy-right"> <p> <?php echo woo_option('copyright-text'); ?></p></div>
 					</div>
 					<div class="col-md-6 col-sm-6">
 						<div class="payment float-none-xs center-sm">
