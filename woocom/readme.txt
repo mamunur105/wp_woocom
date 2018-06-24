@@ -17,3 +17,7 @@ change note
 15
 16
 17. next -->-- single product page compare, wishlist,Email to Friends   
+
+next 
+
+widget image save problem 

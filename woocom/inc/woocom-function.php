@@ -55,12 +55,7 @@ function xpent_template_loop_product_thumbnail(){ ?>
 </div>
 <?php }
 // 
-// add_filter('loop_shop_columns', 'loop_columns');
-// if (!function_exists('loop_columns')) {
-//   function loop_columns() {
-//     return 3; // 3 products per row
-//   }
-// }
+
 // remove defaul prize 
 remove_action('woocommerce_after_shop_loop_item_title','woocommerce_template_loop_price',10);
 // remove reating 
@@ -92,8 +87,6 @@ function xpent_template_loop_price(){ ?>
 
 		<div class="item-rating">
 		 	<div title="69%" class="F-rating-result"> <?php woocommerce_template_loop_rating() ; ?>
-
-		  <!-- <span style="width:69%"></span>  -->
 		</div> 
 		 	
 		</div>
@@ -488,19 +481,9 @@ function comp_wish_email(){ ?>
        <?php  if(shortcode_exists('yith_compare_button')):?>
       <li><i class="fa fa-random"></i><?php echo do_shortcode("[yith_compare_button]");?>Compare</li>
        <?php endif; ?>
-      <!-- <li id="mail_box" ><a ><i class="fa fa-envelope-o"></i><span></span>Email to Friends</a></li> -->
     </ul>
 </div>
 
-<!-- <div class="fixed_class">
-  <span class="cross">&#10005;</span>
-   <form action="<?php echo THEME_URI.'/inc/mailfun.php'?>" method="POST">
-    <div class="form-group">
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
-</div> -->
 <?php }
 
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
@@ -508,8 +491,6 @@ add_action( 'woocommerce_after_single_product_summary', 'wc_output_related_produ
 function wc_output_related_products(){
   $args = array( 
         'posts_per_page' => 8,  
-        // 'columns' => 4,  
-        // 'orderby' => 'rand' 
  ); 
     woocommerce_related_products( apply_filters( 'woocommerce_output_related_products_args', $args ) ); 
 }

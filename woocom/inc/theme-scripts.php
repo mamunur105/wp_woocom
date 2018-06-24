@@ -38,3 +38,11 @@ function woocom_scripts() {
 add_action( 'wp_enqueue_scripts', 'woocom_scripts' );
 
 
+function admin_scripts(){
+	
+	wp_enqueue_media() ;
+	wp_enqueue_script( array('jquery') );
+	wp_enqueue_script( 'image_upload', THEME_URI. '/js/admin_scripts.js', array('jquery') , '', true);
+
+}
+add_action( 'admin_enqueue_scripts', 'admin_scripts' );

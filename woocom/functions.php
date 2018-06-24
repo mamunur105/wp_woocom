@@ -76,6 +76,9 @@ if ( ! function_exists( 'woocom_setup' ) ) :
 		add_theme_support('wc-product-gallery-lightbox');
 		add_theme_support('wc-product-gallery-slider');
 
+
+		add_image_size( 'img-50-50', 50, 50 ); 
+
 		/**
 		 * Add support for core custom logo.
 		 *
@@ -147,17 +150,26 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 /////////////////
 require THEME_PATH. '/plugin/tgm/tgm-custom.php';
+// require THEME_PATH. '/plugin/new-social-media-widget/new-social-media-widget.php';
+
+
 // require THEME_PATH. '/plugin/tgm/class-tgm-plugin-activation.php';
 
 // woocom all function 
-require THEME_PATH. '/inc/woocom-function.php';
 
-// require THEME_PATH. '/inc/woocommerce-overrides.php';
+require THEME_PATH. '/inc/woocom-function.php';
+ 
 require THEME_PATH. '/inc/custom-comments.php';
 
 require THEME_PATH. '/inc/walker_menu.php';
+
 // catagory.php
+
 require THEME_PATH. '/inc/catagory.php';
+
+require THEME_PATH. '/inc/best-sell.php';
+require THEME_PATH. '/inc/contact-info.php';
+
 
 
 

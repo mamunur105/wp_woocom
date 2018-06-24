@@ -2,7 +2,7 @@
 class XpentCatagory extends WP_Widget {
 	function __construct() {
 		// Instantiate the parent object
-		parent::__construct( 'catagories', 'Xpent Catagory ' ,array(
+		parent::__construct( 'catagories', 'Xpent Wc Product Catagory ' ,array(
 				'description'=> "Xpent Catagory By Post type "
 			));
 	}
@@ -27,17 +27,14 @@ class XpentCatagory extends WP_Widget {
 						    'order'      => $order,
 						    'hide_empty' => $hide_empty,
 						);
-						 
+
 						$product_categories = get_terms( 'product_cat', $cat_args );
-						 
+						
 						if( !empty($product_categories) ){
-						    
 						    foreach ($product_categories as $key => $category) {
 						        echo '<li><a href="'.get_term_link($category).'" >'.$category->name.'</a><span>('.$category->count.')</span></li>';
 						    }
-						  
 						}
-
 					?>
 
                 </ul>
@@ -60,32 +57,7 @@ class XpentCatagory extends WP_Widget {
 			<label for="<?php echo $this->get_field_id('title')?>">Title</label>
 			<input type="text" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $title ; ?>" class="widefat" id="<?php echo $this->get_field_id('title')?>" >
 		</div>
-		<div>
-			<label for="<?php echo $this->get_field_id('title')?>">Title</label>
-			<input type="text" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $title ; ?>" class="widefat" id="<?php echo $this->get_field_id('title')?>" >
-		</div>
-		<div>
-			
-			<label for="<?php echo $this->get_field_id('post_type')?>"> Post Type Select </label>
-			
-			<select id="<?php echo $this->get_field_id('post_type')?>" class="widefat" name="<?php echo $this->get_field_name("post_type")?>" value="<?php echo $post_type ?>"> 
-					<option value="post">Post</option> 
-				<?php 
-					$args=array(
-					    'public'                => true,
-					    'exclude_from_search'   => false,
-					    '_builtin'              => false,
-					); 
-				    $output = 'objects'; // names or objects, note names is the default
-				    // $operator = 'and'; // 'and' or 'or'
-				    $post_types = get_post_types($args,$output);
-
-				    foreach ($post_types  as $post_type_one=>$properties ) { ?>
-				        <option value="<?php echo $post_type_one ; ?>" <?php echo $requere = ($post_type == $post_type_one) ? 'selected="selected"' : null ;  ?>><?php echo $properties->labels->name; ?></option> 
-				   <?php } ?>
-
-			</select>
-		</div>
+		
 
 		<?php
 	}

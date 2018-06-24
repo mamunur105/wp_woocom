@@ -2205,6 +2205,7 @@ del.price.old-price {
 	font-weight: 600;
 	text-decoration: underline;
 }
+.sidebar-contant.sidebar-item ul li ,
 .sidebar-item ul li {
 	display: inline-flex;
 	padding: 7px 10px 7px 0;
@@ -3100,6 +3101,7 @@ ul.social-icon li i.fa.fa-pinterest:hover {
 	letter-spacing: 1px;
 	color: #fff;
 	margin-bottom: 17px;
+	text-align: left;
 }
 ul.footer-block-contant.link{
 	line-height: 29px;
@@ -3198,3 +3200,14 @@ ul.tagcloud li a:hover {
 	cursor: pointer;
 }
 /* Scroll-top Arrow CSS End */
+
+.listing-box .sidebar-item ul li a {
+    float: unset;
+    display: block;
+    padding:0;
+    text-align: left;
+}
+
+.contact-details a{
+	float: left;
+}

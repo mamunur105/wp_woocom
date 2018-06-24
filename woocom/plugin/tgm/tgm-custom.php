@@ -83,6 +83,31 @@ function woocom_register_required_plugins() {
 			'slug'      => 'wc-ajax-product-filter',
 			'required'  => true,
 		),
+		array(
+			'name'      => 'Mailchimp For Wp',
+			'slug'      => 'mailchimp-for-wp',
+			'required'  => false,
+		),
+		array(
+			'name'      => 'New Social Media Widget',
+			'slug'      => 'new-social-media-widget',
+			'source'    => get_template_directory() . '/plugin/new-social-media-widget.zip',
+			'required'  => false,
+		),
+
+		array(
+			'name'      => 'Facebook Messenger',
+			'slug'      => 'fb-messenger',
+			// 'source'    => get_template_directory() . '/plugin/new-social-media-widget.zip',
+			'required'  => false,
+		),
+		array(
+			'name'      => 'Duplicate Post',
+			'slug'      => 'duplicate-post',
+			// 'source'    => get_template_directory() . '/plugin/new-social-media-widget.zip',
+			'required'  => false,
+		),
+
 		
 
 		// This is an example of how to include a plugin bundled with a theme.
