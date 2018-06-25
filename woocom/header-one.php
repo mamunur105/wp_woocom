@@ -156,7 +156,8 @@
 														<li class="level2">
 															<ul class="sub-menu-level2 ">
 															<?php
-															$terms = get_terms('product_cat', array('parent' => $category->term_id, 
+															$terms = get_terms('product_cat', array(
+																'parent' => $category->term_id, 
 																'orderby' => $orderby, 
 						    									'order'      => $order,
 																'hide_empty' => $hide_empty
