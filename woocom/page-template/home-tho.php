@@ -1,13 +1,13 @@
 <?php
 /**
- *Template Name: Home One 
+ *Template Name: Home two  
  * 
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package woocom
  */
 
-get_header();
+get_header('one');
 ?>
 
   <!-- BANNER STRAT -->

@@ -27,10 +27,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 
 
-$columns = ' col-md-4 col-xs-6 plr-20 ';
+
 
 ?>
-<div <?php wc_product_class($columns); ?>>
+<div <?php wc_product_class(); ?>>
 	<div class="product-item">
 		
 	<?php

@@ -73,10 +73,16 @@ function woocom_register_required_plugins() {
 			'slug'      => 'woocommerce',
 			'required'  => true,
 		),
+		// array(
+		// 	'name'      => 'WooCommerce Wishlist Plugin',
+		// 	'slug'      => 'ti-woocommerce-wishlist',
+		// 	'required'  => true,
+		// ),
+		
 		array(
-			'name'      => 'WooCommerce Wishlist Plugin',
-			'slug'      => 'ti-woocommerce-wishlist',
-			'required'  => true,
+			'name'      => 'WPS Hide Login',
+			'slug'      => 'wps-hide-login',
+			'required'  => false,
 		),
 		array(
 			'name'      => 'YITH WooCommerce Compare',
@@ -84,10 +90,15 @@ function woocom_register_required_plugins() {
 			'required'  => true,
 		),
 		array(
-			'name'      => 'Wc Ajax Product Filter',
-			'slug'      => 'wc-ajax-product-filter',
+			'name'      => 'Security',
+			'slug'      => 'better-wp-security',
 			'required'  => true,
 		),
+		// array(
+		// 	'name'      => 'Wc Ajax Product Filter',
+		// 	'slug'      => 'wc-ajax-product-filter',
+		// 	'required'  => true,
+		// ),
 		array(
 			'name'      => 'Mailchimp For Wp',
 			'slug'      => 'mailchimp-for-wp',

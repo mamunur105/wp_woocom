@@ -127,9 +127,11 @@ if ( woocommerce_product_loop() ) {
 			 * @hooked WC_Structured_Data::generate_product_data() - 10
 			 */
 			do_action( 'woocommerce_shop_loop' );
-
-			wc_get_template_part( 'content', 'product' );
-		}
+?>
+	<div class="  col-md-4 col-xs-6 plr-20  ">
+		<?php wc_get_template_part( 'content', 'product' ); ?>
+	</div>
+<?php  }
 	}
 
 	woocommerce_product_loop_end();

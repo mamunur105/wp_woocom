@@ -169,7 +169,7 @@ require THEME_PATH. '/inc/walker_menu.php';
 require THEME_PATH. '/inc/catagory.php';
 
 require THEME_PATH. '/inc/best-sell.php';
-require THEME_PATH. '/inc/contact-info.php';
+// require THEME_PATH. '/inc/contact-info.php';
 
 require THEME_PATH. '/plugin/redux/redux-config.php';
 
