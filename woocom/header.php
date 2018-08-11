@@ -125,100 +125,61 @@
 										<div class="sidebar-contant">
 											<div id="menu" class="navbar-collapse collapse">
 												<ul class="nav navbar-nav">
-													<li class="level sub-megamenu">
-														<span class="opener plus"></span>
-														<a href="shop.html" class="page-scroll">Cloths<i class="fa fa-angle-right right-side"></i></a>
-														<div class="megamenu mobile-sub-menu">
-															<div class="megamenu-inner-top">
-																<ul class="sub-menu-level1">
-																	<li class="level2">
-																		<a href="shop.html"><span>Kids Fashion</span></a>
-																		<ul class="sub-menu-level2 ">
-																			<li class="level3"><a href="shop.html">Baby Suits</a></li>
-																			<li class="level3"><a href="shop.html">Tops</a></li>
-																			<li class="level3"><a href="shop.html">Trousers</a></li>
-																			<li class="level3"><a href="shop.html">Shorts</a></li>
-																			<li class="level3"><a href="shop.html">Jackets</a></li>
-																		</ul>
+													
+
+												<?php 
+													$orderby = 'name';
+													$order = 'asc';
+													$hide_empty = false ;
+													$cat_args = array(
+													    'orderby'    => $orderby,
+													    'order'      => $order,
+													    'hide_empty' => $hide_empty,
+													);
+
+													$product_categories = get_terms( 'product_cat', $cat_args );
+													
+													if( !empty($product_categories) ){
+													    foreach ($product_categories as $category) {
+
+																$children = get_term_children($category->term_id, 'product_cat');
+																$this_category = get_category($category);
+
+																if( empty( $children ) &&  $this_category->category_parent == 0 ) {
+																    echo '<li class="level"><a href="'.get_term_link($category).'" class="page-scroll" >'.$category->name.'</a></li>';
+																}else{ ?>
+																	<li class="level sub-megamenu">
+																	<?php if($this_category->category_parent == 0 ): ?>
+																			<span class="opener plus"></span>
+																			<a href="<?php echo get_term_link($category) ; ?>" class="page-scroll"><?php echo $category->name ?><i class="fa fa-angle-right right-side"></i></a>
+																		<?php endif;  ?>
+																	 	<div class="megamenu mobile-sub-menu">
+																			<div class="megamenu-inner-top">
+																				<ul class="sub-menu-level1">
+																					<li class="level2">
+																						<ul class="sub-menu-level2 ">
+																						<?php
+																						$terms = get_terms('product_cat', array(
+																							'parent' => $category->term_id, 
+																							'orderby' => $orderby, 
+													    									'order'      => $order,
+																							'hide_empty' => $hide_empty
+																						));	
+																						foreach($terms as $child) {  ?>
+																							<li class="level3"><a href="<?php echo get_term_link($child) ; ?>"><?php echo $child->name ?></a></li>
+
+																						<?php } ?>
+																						</ul>
+																					</li>
+																				</ul>
+																			</div>
+																		</div> 
 																	</li>
-																</ul>
-															</div>
-														</div>
-													</li>
+																<?php }
+													    }
+													}
+												?>
 
-
-
-
-
-
-
-
-													<li class="level"><a href="shop.html" class="page-scroll">Women Cloths</a></li>
-													<li class="level"><a href="shop.html" class="page-scroll">Playsuits & Jumpsuits</a></li>
-													<li class="level sub-megamenu">
-														<span class="opener plus"></span>
-														<a href="shop.html" class="page-scroll">Fashion<i class="fa fa-angle-right right-side"></i></a>
-														<div class="megamenu mobile-sub-menu">
-															<div class="megamenu-inner-top">
-																<ul class="sub-menu-level1">
-																	<li class="level2">
-																		<a href="shop.html"><span>Women Clothings</span></a>
-																		<ul class="sub-menu-level2">
-																			<li class="level3"><a href="shop.html">Dresses</a></li>
-																			<li class="level3"><a href="shop.html">Skirts</a></li>
-																			<li class="level3"><a href="shop.html">Tops</a></li>
-																			<li class="level3"><a href="shop.html">Sleepwear</a></li>
-																			<li class="level3"><a href="shop.html">Trousers</a></li>
-																			<li class="level3"><a href="shop.html">Shorts</a></li>
-																		</ul>
-																	</li>
-																	<li class="level2">
-																		<a href="shop.html"><span>Girls Fashion</span></a>
-																		<ul class="sub-menu-level2 ">
-																			<li class="level3"><a href="shop.html">Dresses</a></li>
-																			<li class="level3"><a href="shop.html">Skirts</a></li>
-																			<li class="level3"><a href="shop.html">Tops</a></li>
-																			<li class="level3"><a href="shop.html">Sleepwear</a></li>
-																			<li class="level3"><a href="shop.html">Trousers</a></li>
-																			<li class="level3"><a href="shop.html">Shorts</a></li>
-																		</ul>
-																	</li>
-																	<li class="level2 hidden-xs hidden-sm">
-																		<a href="shop.html">
-																			<img src="images/banner/menu-banner.jpg" alt="Xpent ">
-																		</a>
-																	</li>
-																</ul>
-															</div>
-														</div>
-													</li>
-													<li class="level"><a href="shop.html" class="page-scroll">Swimwear</a></li>
-													<li class="level"><a href="shop.html" class="page-scroll">Jackets</a></li>
-													<li class="level"><a href="shop.html" class="page-scroll">Playsuits & Jumpsuits</a></li>
-													<li class="level sub-megamenu">
-														<span class="opener plus"></span>
-														<a class="page-scroll">Pages<i class="fa fa-angle-right right-side"></i></a>
-														<div class="megamenu mobile-sub-menu">
-															<div class="megamenu-inner-top">
-																<ul class="sub-menu-level1">
-																	<li class="level2">
-																		<ul class="sub-menu-level2 ">
-																			<li class="level3"><a href="about.html">About</a></li>
-																			<li class="level3"><a href="account.html">Account</a></li>
-																			<li class="level3"><a href="checkout.html">Checkout</a></li>
-																			<li class="level3"><a href="contact.html">Contact</a></li>
-																			<li class="level3"><a href="404.html">404 Error</a></li>
-																			<li class="level3"><a href="blog.html">Blog</a></li>
-																			<li class="level3"><a href="single-blog.html">Single Blog</a></li>
-																		</ul>
-																	</li>
-																</ul>
-															</div>
-														</div>
-													</li>
-													<li class="level"><a href="shop.html" class="page-scroll">Ladis Coats</a></li>
-													<li class="level"><a href="shop.html" class="page-scroll">Tracksuits</a></li>
-													<li class="level"><a href="shop.html" class="page-scroll">All Categories >></a></li>
 												</ul>
 											</div>
 										</div>

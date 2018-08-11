@@ -940,6 +940,7 @@ Navigation Menu Style
 .account-link-dropdown, .account-link-dropdown a {
 	color: #a6a6a6;
 }
+
 .account-link-dropdown a:hover, .account-link-dropdown a.active {
 	color: #EA232A;
 }
@@ -2207,7 +2208,7 @@ del.price.old-price {
 }
 .sidebar-contant.sidebar-item ul li ,
 .sidebar-item ul li {
-	display: inline-flex;
+	display: flex;
 	padding: 7px 10px 7px 0;
 	margin-bottom: 5px;
 }
@@ -2824,15 +2825,24 @@ table.table {
 .account-sidebar ul li a:hover {
 	color: #26537f;
 }
-.account-sidebar ul li.active a, .account-sidebar ul li:hover a {
+
+.account-sidebar ul li.is-active a, 
+.account-sidebar ul li.active a, 
+.account-sidebar ul li:hover a {
 	color: #fff;
 	background: #EA232A none repeat scroll 0 0
 }
-.account-sidebar ul li.active a .fa, .account-sidebar ul li:hover a .fa {
+
+.account-sidebar ul li.is-active a .fa, 
+.account-sidebar ul li.active a .fa, 
+.account-sidebar ul li:hover a .fa {
 	color: #fff;
 	right: 0px;
 }
-.account-sidebar ul li.active a::after, .account-sidebar ul li:hover a::after {
+.account-sidebar ul li.is-active a::after,
+.account-sidebar ul li.active a::after, 
+.account-sidebar ul li.active a::after, 
+.account-sidebar ul li:hover a::after {
 	border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #EA232A;
 	border-style: solid;
 	border-width: 20px 22px 20px 15px;

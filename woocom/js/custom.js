@@ -188,15 +188,15 @@
     });
     /* ------------ product category Tab End  ------------ */
     /* ------------ Account Tab JS Start ------------ */
-    $('.account-tab-stap').on('click', 'li', function() {
-        $('.account-tab-stap li').removeClass('active');
-        $(this).addClass('active');
+    // $('.account-tab-stap').on('click', 'li', function() {
+    //     $('.account-tab-stap li').removeClass('active');
+    //     $(this).addClass('active');
         
-        $(".account-content").fadeOut();
-        var currentLiID = $(this).attr('id');
-        $("#data-"+currentLiID).fadeIn();
-        return false;
-    });
+    //     $(".account-content").fadeOut();
+    //     var currentLiID = $(this).attr('id');
+    //     $("#data-"+currentLiID).fadeIn();
+    //     return false;
+    // });
     /* ------------ Account Tab JS End ------------ */
   }
 
@@ -273,12 +273,39 @@ $(document).ready(function(){
 
 });
 
+
+
 // $( "#mail_box" ).click(function(){
 //     $( ".fixed_class" ).addClass("fixed");
 // });
 // $( ".cross" ).click(function(){
 //     $( ".fixed_class" ).removeClass("fixed");
 // });
+
+
+jQuery( document ).ready( function( $ ){
+$(document).on( 'added_to_wishlist removed_from_wishlist', function(){
+var counter = $('.your-counter-selector');
+
+$.ajax({
+url: yith_wcwl_l10n.ajax_url,
+data: {
+action: 'yith_wcwl_update_wishlist_count'
+},
+dataType: 'json',
+success: function( data ){
+counter.html( data.count );
+},
+beforeSend: function(){
+counter.block();
+},
+complete: function(){
+counter.unblock();
+}
+})
+} )
+});
+
 
 
 

@@ -39,10 +39,14 @@ function xpent_template_loop_product_thumbnail(){ ?>
 	  <div class="item-overlay">
 	    <ul>
 	      	<li><?php woocommerce_template_loop_add_to_cart();?></li>
-	      	<?php  if(shortcode_exists('yith_wcwl_add_to_wishlist')):?>
-	      		<li><div class="wishlist-styling"><?php echo do_shortcode("[yith_wcwl_add_to_wishlist]");?>
-            <!-- <i class="fa fa-heart-o"></i> -->
-          </div></li>
+	      	<?php  
+          if(shortcode_exists( 'yith_wcwl_add_to_wishlist' )):?>
+	      		<li>
+              <div class="wishlist-styling">
+                <?php echo do_shortcode('[yith_wcwl_add_to_wishlist]');?>
+                <i class="fa fa-heart-o"></i>
+              </div>
+            </li>
 	  		<?php endif; ?>
 	  		<?php  if(shortcode_exists('yith_compare_button')):?>
 			<li>

@@ -65,10 +65,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
     background: transparent !important;
     position: relative;
 }
-.woocommerce.product.compare-button a.compare.added{
+.woocommerce.product.compare-button a.compare.added {
     background: #fff !important;
     line-height: 40px;
     width: 50px;
+    font-size: 11px;
 }
 .woocommerce.product.compare-button a.compare.button.added{
     padding: 0;
@@ -80,11 +81,12 @@ a.button.product_type_simple.add_to_cart_button.added i {
 a.added_to_cart.wc-forward {
     position: absolute;
     top: 0;
-    width: 70px;
+    width: 40px;
     right: 0;
     text-align: center;
-    line-height: 40px;
+    line-height: 20px;
     padding: 0;
+    font-size: 11px;
 }
 .price-box {
     overflow: hidden;
@@ -357,7 +359,7 @@ ul.sub-menu.sub-menu-level1 li.level a {
 .wishlist-styling .yith-wcwl-add-to-wishlist{
     margin: 0 ;
 }
-/*.wishlist-styling .yith-wcwl-add-to-wishlist a.add_to_wishlist{
+.wishlist-styling .yith-wcwl-add-to-wishlist a.add_to_wishlist{
     text-indent: -99999999999999px;
     height: 40px;
     width: 100%;
@@ -367,4 +369,28 @@ ul.sub-menu.sub-menu-level1 li.level a {
 }
 .wishlist-styling i {
     z-index: 9;
+}
+
+/*a.add_to_wishlist {
+    cursor: pointer;
+    position: relative;
+    z-index: 9;
+    width: 40px !important;
+    height: 40px !important;
+    background: transparent;
+        background-color: transparent;
 }*/
+.wishlist-styling .feedback {
+    display: none;
+}
+.wishlist-styling .yith-wcwl-wishlistaddedbrowse a,
+.wishlist-styling .yith-wcwl-wishlistexistsbrowse a {
+    height: 40px;
+    width: 40px;
+    font-size: 10px;
+    line-height: 20px;
+    background: #fff;
+    z-index: 99;
+    position: relative;
+    display: block;
+}

@@ -40,11 +40,11 @@ get_header();
 						/* Start the Loop */
 						while ( have_posts() ) : the_post();
 
-							if(shortcode_exists('ti_wishlistsview')):
-								  echo do_shortcode("[ti_wishlistsview]"); 
-							endif;
+							the_content();
+
 						endwhile;
 					endif; 
+					wp_reset_postdata();
 				?>
 	      	</div>
 

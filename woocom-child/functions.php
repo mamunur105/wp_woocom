@@ -2,14 +2,11 @@
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) exit;
 
-// BEGIN ENQUEUE PARENT ACTION
-// AUTO GENERATED - Do not modify or remove comment markers above or below:
+/* ---------------------------------------------------------------------------
+ * Enqueue Style
+ * --------------------------------------------------------------------------- */
 
-if ( !function_exists( 'chld_thm_cfg_parent_css' ) ):
-    function chld_thm_cfg_parent_css() {
-        wp_enqueue_style( 'chld_thm_cfg_parent', trailingslashit( get_template_directory_uri() ) . 'style.css', array( 'woocom-font-awesome','woocom-bootstrap','woocom-jquery-ui','woocom-owl-carousel','woocom-magnific-popup','woocom-fotorama','woocom-coustom' ) );
-    }
-endif;
-add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
-
-// END ENQUEUE PARENT ACTION
+add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
+function my_theme_enqueue_styles() {
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+}
