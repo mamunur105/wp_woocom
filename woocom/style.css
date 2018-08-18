@@ -1,0 +1,396 @@
+/*!
+Theme Name: woocom
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: woocom
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+woocom is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+
+/*woocommerce prize override */
+
+.woocommerce div.product  span.price {
+    font-size: 18px;
+    color: #EA232A;
+}
+
+.product-item-details {
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.woocommerce .star-rating::before{
+
+}
+.woocommerce .star-rating span::before {
+    color: rgb(255, 198, 0);
+    /*background: #7e7e7e;*/
+}
+.tinv-wraper.tinv-wishlist {
+    width: 40px;
+    height: 40px;
+}
+.woocommerce.product.compare-button,
+.wishlist-styling{
+	position: relative;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+}
+.compare-styling i,
+.wishlist-styling i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.woocommerce.product.compare-button a.compare,
+/*.woocommerce.product.compare-button a.compare.button,*/
+.wishlist-styling a.tinvwl_add_to_wishlist_button {
+    z-index: 2;
+    background: transparent !important;
+    position: relative;
+}
+.woocommerce.product.compare-button a.compare.added {
+    background: #fff !important;
+    line-height: 40px;
+    width: 50px;
+    font-size: 11px;
+}
+.woocommerce.product.compare-button a.compare.button.added{
+    padding: 0;
+    width: 70px !important;
+}
+a.button.product_type_simple.add_to_cart_button.added i {
+    display: none;
+}
+a.added_to_cart.wc-forward {
+    position: absolute;
+    top: 0;
+    width: 40px;
+    right: 0;
+    text-align: center;
+    line-height: 20px;
+    padding: 0;
+    font-size: 11px;
+}
+.price-box {
+    overflow: hidden;
+    min-height: 35px;
+}
+.cat-dropdown {
+    z-index: 5;
+}
+.cart-dropdown .cart-list li .media .pull-left img {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    height: auto;
+}
+.woocommerce .header-right-link .link-dropdown-list > li {
+     padding-bottom: 15px; 
+    margin-bottom: 15px;
+}
+#page .cart-dropdown .close-cart {
+    color: #a6a6a6 !important;
+    height: 15px;
+    position: absolute;
+    right: 0;
+    top: 36px;
+    width: 15px;
+    font-size: 16px;
+    background: none;
+}
+
+#page .cart-dropdown ul li a:hover {
+    color: #EA232A !important;
+}
+
+.header-right-link ul li.cart-icon:hover .close-iconstyle i{ color: #fff ; }
+
+.woocommerce  .cart-dropdown a, .cart-dropdown strong {
+    color: #a6a6a6;
+}
+div#content {
+    overflow: hidden;
+}
+.single-product-sale_flash {
+    left: 15px;
+}
+.woocommerce div.product .woocommerce-product-rating {
+    margin-bottom: 10px;
+}
+.woocommerce div.product form.cart .variations label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.woocommerce div.product form.cart .variations {
+    margin-bottom: 0;
+}
+
+a.reset_variations {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    overflow: hidden;
+}
+.product-detail-main .product-item-details .bottom-detail {
+  /*  display: inline-block;
+    padding: 0;*/
+}
+.single_variation_wrap {
+    margin-top: 20px;
+    overflow: hidden;
+}
+.woocommerce-variation-price {
+    margin: 0 30px 10px;
+}
+.woocommerce-variation-price ins {
+    float: left;
+    margin-right: 10px;
+}
+.product-item {
+    min-height: 360px;
+    max-height: initial;
+}
+.nav-tabs > li {
+    margin-bottom: 0px;
+    outline: 0;
+}
+.product-detail-tab .nav > li > a ,
+.product-detail-tab .nav > li > a:hover {
+    margin-left: 0;
+    border: none;
+    padding-left: 0;
+}
+
+.product-detail-tab .nav > li.active  > a,
+.product-detail-tab .nav > li.active  > a:focus,
+.product-detail-tab .nav > li.active  > a:hover {
+    outline: 0;
+    border: 0;
+    color: #EA232A;
+}
+
+div#comments ul > li {
+    padding-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e1e1e1;
+    border-top: none;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+ul.children,
+div#comments ul.child-comment {
+    margin-left: 63px;
+}
+div#comments .post-info li {
+    min-width: 80px;
+    border: none;
+    /* width: 100%; */
+}
+.woocommerce #reviews #comments ol.commentlist #respond {
+    padding: 15px;
+    margin: 20px 0 30px 50px;
+    overflow: hidden;
+}
+.woocommerce #reviews #comment {
+    width: 100%;
+}
+p.logged-in-as {
+    overflow: hidden;
+    width: 100%;
+    padding-left: 15px;
+}
+.comment-user {
+    width: 100%;
+    max-width: 50px;
+}
+.comment-detail {
+    padding-bottom: 10px;
+    max-width: calc(100% - 75px);
+    float: left;
+}
+.woocommerce #reviews #comments ol.commentlist li img.avatar {
+    position: relative;
+    width: 100%; 
+}
+.woocommerce #reviews #comments ol.commentlist li{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+.bread-crumb ul li:last-child {
+    color: #EA232A;
+    padding-left: 5px;
+    font-weight: 600;
+}
+.comment-detail .user-name {
+    line-height: 1.5;
+}
+a#cancel-comment-reply-link {
+    color: red;
+}
+span#reply-title {
+    margin-bottom: 15px;
+    display: block;
+}
+.woocommerce div.product form.cart {
+    margin-bottom: 0;
+}
+.bottom-detail ul li{
+    position: relative;
+    min-width:100px;
+    line-height: 13px;
+}
+
+.bottom-detail .woocommerce.product.compare-button,
+.bottom-detail a.tinvwl_add_to_wishlist_button{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: transparent;
+}
+.bottom-detail .woocommerce.product.compare-button:hover,
+.bottom-detail a.tinvwl_add_to_wishlist_button:hover {
+    background: transparent;
+}
+.bottom-detail i {
+    float: left;
+    margin-right: 10px;
+}
+.bottom-detail .woocommerce.product.compare-button a.compare,
+.bottom-detail .tinv-wraper.tinv-wishlist {
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.bottom-detail .woocommerce.product.compare-button a.compare {
+    z-index: 9;
+    height: 20px;
+    line-height: 1.1;
+}
+.owl-carousel .col-md-4.col-xs-6 {
+    width: 100%;
+}
+ /*walker menu */
+.nav > li:hover {
+    overflow: visible;
+    position: relative;
+}
+ul.sub-menu.sub-menu-level1 li.level a {
+    padding: 0;
+    display: block;
+}
+.megamenu.mobile-sub-menu{
+    min-width: 180px;
+}
+.mobilemenu-content li:hover > a {
+    color: #EA232A;
+}
+.mobilemenu-content li .megamenu li a{color:#001e32}
+.mobilemenu-content li .megamenu li:hover a{
+    color: #EA232A;
+}
+.listing-box ul li {
+    border-bottom: 1px solid #f0f0f0;
+    display: block;
+    text-align: right;
+    overflow: hidden;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.listing-box ul li:first-child a {
+    padding-top: 0;
+}
+
+.listing-box ul li a {
+    padding: 6px 17px;
+    display: inline-block;
+    float: left;
+}
+.sidebar-block .noUi-horizontal {
+    height: 8px;
+}
+.sidebar-block .noUi-target {
+    border-radius: 4px;
+    border: 1px solid #D3D3D3;
+}
+.sidebar-block .noUi-horizontal .noUi-handle {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: #EA232A;
+    box-shadow: none;
+        top: -5px;
+}
+.sidebar-block .noUi-handle:after, 
+.sidebar-block .noUi-handle:before {
+    content:none;
+}
+.sidebar-block  .noUi-horizontal.noUi-extended {
+    padding-right: 0;
+}
+.wishlist-styling .yith-wcwl-add-to-wishlist{
+    margin: 0 ;
+}
+.wishlist-styling .yith-wcwl-add-to-wishlist a.add_to_wishlist{
+    text-indent: -99999999999999px;
+    height: 40px;
+    width: 100%;
+    position: relative;
+    z-index: 9;
+    background: transparent;
+}
+.wishlist-styling i {
+    z-index: 9;
+}
+
+/*a.add_to_wishlist {
+    cursor: pointer;
+    position: relative;
+    z-index: 9;
+    width: 40px !important;
+    height: 40px !important;
+    background: transparent;
+        background-color: transparent;
+}*/
+.wishlist-styling .feedback {
+    display: none;
+}
+.wishlist-styling .yith-wcwl-wishlistaddedbrowse a,
+.wishlist-styling .yith-wcwl-wishlistexistsbrowse a {
+    height: 40px;
+    width: 40px;
+    font-size: 10px;
+    line-height: 20px;
+    background: #fff;
+    z-index: 99;
+    position: relative;
+    display: block;
+}
