@@ -30,7 +30,7 @@
 								// if (is_front_page() && is_home() ): ?>
 								
 <!-- <div class="xpent-loader"></div> -->
-
+<!-- hello  this is checking  -->
 <div id="page" class="main ">
 	<!-- HEADER START -->
 	<header class="navbar navbar-custom" id="header">
