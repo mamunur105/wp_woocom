@@ -1,5 +1,7 @@
 <?php
 
+define( 'WOO_THEME_OPTIONS', 'woo_option' );
+
 if (!function_exists('woo_option')){
     /**
      * Function to get options in front-end
@@ -26,9 +28,6 @@ if (!function_exists('woo_option')){
         }
     }
 }
-
-
-
 
     /**
      * ReduxFramework Sample Config File
@@ -202,47 +201,7 @@ if (!function_exists('woo_option')){
         )
     );
 
-    // ADMIN BAR LINKS -> Setup custom links in the admin bar menu as external items.
-    // $args['admin_bar_links'][] = array(
-    //     'id'    => 'redux-docs',
-    //     'href'  => 'http://docs.reduxframework.com/',
-    //     'title' => __( 'Documentation', 'woocom' ),
-    // );
 
-    // $args['admin_bar_links'][] = array(
-    //     //'id'    => 'redux-support',
-    //     'href'  => 'https://github.com/ReduxFramework/redux-framework/issues',
-    //     'title' => __( 'Support', 'woocom' ),
-    // );
-
-    // $args['admin_bar_links'][] = array(
-    //     'id'    => 'redux-extensions',
-    //     'href'  => 'reduxframework.com/extensions',
-    //     'title' => __( 'Extensions', 'woocom' ),
-    // );
-
-    // // SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
-    // $args['share_icons'][] = array(
-    //     'url'   => 'https://github.com/ReduxFramework/ReduxFramework',
-    //     'title' => 'Visit us on GitHub',
-    //     'icon'  => 'el el-github'
-    //     //'img'   => '', // You can use icon OR img. IMG needs to be a full URL.
-    // );
-    // $args['share_icons'][] = array(
-    //     'url'   => 'https://www.facebook.com/pages/Redux-Framework/243141545850368',
-    //     'title' => 'Like us on Facebook',
-    //     'icon'  => 'el el-facebook'
-    // );
-    // $args['share_icons'][] = array(
-    //     'url'   => 'http://twitter.com/reduxframework',
-    //     'title' => 'Follow us on Twitter',
-    //     'icon'  => 'el el-twitter'
-    // );
-    // $args['share_icons'][] = array(
-    //     'url'   => 'http://www.linkedin.com/company/redux-framework',
-    //     'title' => 'Find us on LinkedIn',
-    //     'icon'  => 'el el-linkedin'
-    // );
 
     // Panel Intro text -> before the form
     if ( ! isset( $args['global_variable'] ) || $args['global_variable'] !== false ) {
@@ -285,8 +244,6 @@ if (!function_exists('woo_option')){
     // Set the help sidebar
     $content = __( '<p>This is the sidebar content, HTML is allowed.</p>', 'woocom' );
     Redux::setHelpSidebar( $opt_name, $content );
-
-
     /*
      * <--- END HELP TABS
      */
@@ -295,12 +252,9 @@ if (!function_exists('woo_option')){
      * ---> START SECTIONS
      *
      */
-
     /*
         As of Redux 3.5+, there is an extensive API. This API can be used in a mix/match mode allowing for
-
      */
-
     // -> START Basic Fields
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Global Options ', 'woocom' ),
@@ -407,69 +361,94 @@ if (!function_exists('woo_option')){
 
             )
     ) );
-
+    // home slider 
     Redux::setSection($opt_name, array(
-        'title'            => __( 'Blog Page', 'woocom' ),
+        'title'            => __( 'Home  ', 'woocom' ),
         'icon'             => 'dashicons dashicons-admin-settings',
-        'id'               => 'blog-page',
+        'id'               => 'home-page',
         'fields'           => array(
-                array(
-                    'id'       => 'woocom-blog-page',
-                    'type'     => 'switch',
-                    'title'    => esc_html__('Enable Header top','woocom'),
-                    'subtitle' => esc_html__('Select to enable/disable Header top','woocom'),
-                    'desc'     => esc_html__('header top bar enable disable ','woocom'),
-                    'default'  => true
+                 array(
+                    'id'          => 'homess-slides',
+                    'type'        => 'slides',
+                    'title'       => __('Slides Options', 'redux-framework-demo'),
+                    'subtitle'    => __('Unlimited slides with drag and drop sortings.', 'redux-framework-demo'),
+                    'desc'        => __('This field will store all slides values into a multidimensional array to use into a foreach loop.', 'redux-framework-demo'),
+                    'placeholder' => array(
+                        'title'           => __('This is a ', 'redux-framework-demo'),
+                        'description'     => __('Description Here', 'redux-framework-demo'),
+                        'url'             => __('Give us a link!', 'redux-framework-demo'),
+                        'image'           => __('Upload Image','redux-framework-demo'),
+
+                    ),
                 ),
+                array(
+                    'id'          => 'homess-banners',
+                    'type'        => 'slides',
+                    'title'       => __('Banner Options', 'redux-framework-demo'),
+                    'subtitle'    => __('Unlimited slides with drag and drop sortings.', 'redux-framework-demo'),
+                    'desc'        => __('This field will store all slides values into a multidimensional array to use into a foreach loop.', 'redux-framework-demo'),
+                    'placeholder' => array(
+                        'title'           => __('This is a ', 'redux-framework-demo'),
+                        'description'     => __('Description Here', 'redux-framework-demo'),
+                        'url'             => __('Give us a link!', 'redux-framework-demo'),
+                        'image'           => __('Upload Image','redux-framework-demo'),
+
+                    ),
+                ),
+                array(
+                    'id'   => 'info_cta',
+                    'type' => 'info',
+                    'desc' => __('<h2 style="color:green;font-weight: 700;margin: 0;">Call To action </h2>', 'woocom')
+                ),
+                array(
+                    'id'       => 'cta-bg',
+                    'type'     => 'media', 
+                    'url'      => true,
+                    'title'    => __( 'Cta Bg Image ', 'woocom' )
+                ),
+                array(
+                    'id'       => 'cta_title',
+                    'type'     => 'text', 
+                    'title'    => __( 'Call To action (CTA)  ', 'woocom' ),
+                    'desc'     => __( 'Insert CTA Title', 'woocom' ),
+                ),
+                array(
+                    'id'       => 'cta_textarea',
+                    'type'     => 'textarea', 
+                    'title'    => __( 'CTA Content ', 'woocom' ),
+                    'desc'     => __( 'Insert Cta Title', 'woocom' ),
+                ),
+                array(
+                    'id'       => 'cta_link',
+                    'type'     => 'text', 
+                    'title'    => __( 'CTA Link ', 'woocom' ),
+                    'desc'     => __( 'Insert CTA Link', 'woocom' ),
+                ),
+                array(
+                    'id'   => 'DELIVERY',
+                    'type' => 'info',
+                    'desc' => __('<h2 style="color:green;font-weight: 700;margin: 0;">DELIVERY</h2>', 'woocom')
+                ),
+                array(
+                    'id'          => 'homess-DELIVERY',
+                    'type'        => 'slides',
+                    'title'       => __('DELIVERY Options', 'redux-framework-demo'),
+                    'subtitle'    => __('Unlimited slides with drag and drop sortings.', 'redux-framework-demo'),
+                    'desc'        => __('This field will store all slides values into a multidimensional array to use into a foreach loop.', 'redux-framework-demo'),
+                    'placeholder' => array(
+                        'title'           => __('This is a ', 'redux-framework-demo'),
+                        'description'     => __('Description Here', 'redux-framework-demo'),
+                        'url'             => __('Give us a link!', 'redux-framework-demo'),
+                        'image'           => __('Upload Image','redux-framework-demo'),
+
+                    ),
+                ),
+                
         )
     ) );
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-     * <--- END SECTIONS
-     */
-
-
-    /*
-     *
-     * YOU MUST PREFIX THE FUNCTIONS BELOW AND ACTION FUNCTION CALLS OR ANY OTHER CONFIG MAY OVERRIDE YOUR CODE.
-     *
-     */
-
-    /*
-    *
-    * --> Action hook examples
-    *
-    */
-
-    // If Redux is running as a plugin, this will remove the demo notice and links
-    //add_action( 'redux/loaded', 'remove_demo' );
-
-    // Function to test the compiler hook and demo CSS output.
-    // Above 10 is a priority, but 2 in necessary to include the dynamically generated CSS to be sent to the function.
-    //add_filter('redux/options/' . $opt_name . '/compiler', 'compiler_action', 10, 3);
-
-    // Change the arguments after they've been declared, but before the panel is created
-    //add_filter('redux/options/' . $opt_name . '/args', 'change_arguments' );
-
-    // Change the default value of a field after it's been set, but before it's been useds
-    //add_filter('redux/options/' . $opt_name . '/defaults', 'change_defaults' );
-
-    // Dynamically add a section. Can be also used to modify sections/fields
-    //add_filter('redux/options/' . $opt_name . '/sections', 'dynamic_section');
 
     /**
      * This is a test function that will let you see when the compiler hook occurs.

@@ -1,7 +1,6 @@
 <?php
 define('THEME_URI', get_template_directory_uri());
 define('THEME_PATH', get_template_directory());
-define( 'WOO_THEME_OPTIONS', 'woo_option' );
 
 /**
  * woocom functions and definitions

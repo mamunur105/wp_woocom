@@ -461,3 +461,9 @@ input#ship-to-different-address-checkbox {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.banner-detail {
+    position: absolute;
+    bottom: 50%;
+    width: 100%;
+    transform: translateY(50%);
+}

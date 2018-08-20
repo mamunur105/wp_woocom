@@ -40,11 +40,30 @@
 					<div class="col-sm-5">
 						<div class="top-link top-link-left">
 							<ul class="social-icon">
-								<li><a title="Facebook" class="facebook"><i class="fa fa-facebook"> </i></a></li>
-								<li><a title="Twitter" class="twitter"><i class="fa fa-twitter"> </i></a></li>
-								<li><a title="Linkedin" class="linkedin"><i class="fa fa-linkedin"> </i></a></li>
-								<li><a title="RSS" class="rss"><i class="fa fa-rss"> </i></a></li>
-								<li><a title="Pinterest" class="pinterest"><i class="fa fa-pinterest"> </i></a></li>
+
+								<?php if (!empty(woo_option('facebook-link'))) : ?>
+								<li><a title="Facebook" href="<?php echo woo_option('facebook-link')?>" class="facebook"><i class="fa fa-facebook"> </i></a></li>
+								<?php endif;  ?>
+								<?php if (!empty(woo_option('twitter-link'))) : ?>
+
+								<li><a href="<?php echo woo_option('twitter-link')?>" title="Twitter" class="twitter"><i class="fa fa-twitter"> </i></a></li>
+								<?php endif;  ?>
+								<?php if (!empty(woo_option('google-plus-link'))) : ?>
+								
+								<li><a href="<?php echo woo_option('linkedin-link')?>" title="Linkedin" class="linkedin"><i class="fa fa-linkedin"> </i></a></li>
+
+								<?php endif;  ?>
+								<?php if (!empty(woo_option('pinterest-link'))) : ?>
+								
+								<li><a href="<?php echo woo_option('pinterest-link')?>" title="RSS" class=" pinterest"><i class="fa fa-pinterest"> </i></a></li>
+								
+								<?php endif;  ?>
+								<?php if (!empty(woo_option('instagram-link'))) : ?>
+								
+								<li><a href="<?php echo woo_option('instagram-link')?>" title="Pinterest" class="rss"><i class="fa fa-rss"> </i></a></li>
+
+								<?php endif;  ?>
+
 							</ul>
 						</div>
 					</div>
@@ -70,9 +89,13 @@
 			<div class="container">
 				<div class="header-inner">
 					<div class="navbar-header">
+
 						<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button"><i class="fa fa-bars"></i></button>
-						<a class="navbar-brand page-scroll" href="<?php echo esc_url( home_url( '/' ) ); ?>"> <img alt=" Logo  " src="<?php echo THEME_URI ?>/images/logo.png" > </a>
-					
+						<?php ?>
+
+						<?php if (!empty(woo_option('woocom_logo'))) : ?>
+							<a class="navbar-brand page-scroll" href="<?php echo esc_url( home_url( '/' ) ); ?>"> <img alt=" Logo  " src="<?php echo esc_url(woo_option('woocom_logo')['url']) ; ?>" > </a>
+						<?php endif; ?>
 
 					</div>
 					<div class="right-side float-none-sm">
@@ -226,7 +249,5 @@
 			</div>
 	</header>
 	<!-- HEADER END --> 
-
-	<div id="content" class="site-content">
 
 
