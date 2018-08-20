@@ -502,3 +502,18 @@ function wc_output_related_products(){
 }
 
 // remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+
+add_action( 'wp_footer', 'bbloomer_cart_refresh_update_qty',9999999 ); 
+ 
+function bbloomer_cart_refresh_update_qty() { 
+    if (is_cart()) { 
+        ?> 
+        <script type="text/javascript"> 
+            jQuery('button.items').on('click',function(){ 
+                jQuery("[name='update_cart']").prop("disabled", false);
+            }); 
+        </script> 
+
+        <?php 
+    } 
+}

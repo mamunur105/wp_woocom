@@ -756,6 +756,8 @@ header {
 .header-right-link ul li.cart-icon:hover > a span {
 	background-position: -8px -47px;
 }
+
+.header-right-link ul li.cart-icon > a span small#wishlist_counter,
 .header-right-link ul li.cart-icon > a span small.cart-notification {
 	background: #000000;
 	color: #fff;
@@ -3217,7 +3219,25 @@ ul.tagcloud li a:hover {
     padding:0;
     text-align: left;
 }
-
 .contact-details a{
 	float: left;
+}
+.woocommerce-cart table.cart img {
+    max-width: 170px;
+    width: 100%;
+}
+.woocommerce table.shop_table {
+    border-left: 0;
+    border-right: 0;
+}
+#content input#coupon_code {
+    padding: 10px 15px;
+    line-height: 16px;
+    font-weight: 500;
+    width: 225px;
+}
+.inline-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

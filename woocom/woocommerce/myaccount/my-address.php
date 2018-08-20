@@ -19,7 +19,18 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
+?>
 
+<div class="row">
+<div class="col-xs-12">
+  <div class="heading-part heading-bg mb-30">
+    <h2 class="heading m-0">Billing & Shipping address</h2>
+  </div>
+</div>
+</div>
+
+
+<?php
 $customer_id = get_current_user_id();
 
 if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
@@ -40,6 +51,15 @@ $col    = 1;
 <p>
 	<?php echo apply_filters( 'woocommerce_my_account_my_address_description', __( 'The following addresses will be used on the checkout page by default.', 'woocommerce' ) ); ?>
 </p>
+
+<div class="row">
+	<div class="col-xs-12 mb-20">
+	    <div class="heading-part">
+	      <h3 class="sub-heading">Account Information</h3>
+	    </div>
+	    <hr>
+	</div>
+</div>
 
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) : ?>
 	<div class="u-columns woocommerce-Addresses col2-set addresses">

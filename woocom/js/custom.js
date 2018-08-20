@@ -187,17 +187,6 @@
         return false;
     });
     /* ------------ product category Tab End  ------------ */
-    /* ------------ Account Tab JS Start ------------ */
-    // $('.account-tab-stap').on('click', 'li', function() {
-    //     $('.account-tab-stap li').removeClass('active');
-    //     $(this).addClass('active');
-        
-    //     $(".account-content").fadeOut();
-    //     var currentLiID = $(this).attr('id');
-    //     $("#data-"+currentLiID).fadeIn();
-    //     return false;
-    // });
-    /* ------------ Account Tab JS End ------------ */
   }
 
   function setminheight() {
@@ -274,57 +263,4 @@ $(document).ready(function(){
 });
 
 
-
-// $( "#mail_box" ).click(function(){
-//     $( ".fixed_class" ).addClass("fixed");
-// });
-// $( ".cross" ).click(function(){
-//     $( ".fixed_class" ).removeClass("fixed");
-// });
-
-
-jQuery( document ).ready( function( $ ){
-$(document).on( 'added_to_wishlist removed_from_wishlist', function(){
-var counter = $('.your-counter-selector');
-
-$.ajax({
-url: yith_wcwl_l10n.ajax_url,
-data: {
-action: 'yith_wcwl_update_wishlist_count'
-},
-dataType: 'json',
-success: function( data ){
-counter.html( data.count );
-},
-beforeSend: function(){
-counter.block();
-},
-complete: function(){
-counter.unblock();
-}
-})
-} )
-});
-
-
-
-
-
 })(jQuery);
-
-
-// ( function ( $ ) {
-//  "use strict";
-// // Define the PHP function to call from here
-//  var data = {
-//    'action': 'mode_theme_update_mini_cart'
-//  };
-//  $.post(
-//    woocommerce_params.ajax_url, // The AJAX URL
-//    data, // Send our PHP function
-//    function(response){
-//      $('.woocommerce-mini-cart').html(response); // Repopulate the specific element with the new content
-//    }
-//  );
-// // Close anon function.
-// }( jQuery ) );

@@ -265,13 +265,23 @@ function drubo_portfolio_taxonomies_type() {
 add_action('init', 'drubo_portfolio_taxonomies_type');
 
 
+// WISHLIST COPUNT 
 
-if( defined( 'YITH_WCWL' ) && ! function_exists( 'yith_wcwl_ajax_update_count' ) ){
-function yith_wcwl_ajax_update_count(){
-wp_send_json( array(
-'count' => yith_wcwl_count_all_products()
-) );
+
+
+
+
+// code at the end of functions.php file of your theme
+
+function update_wishlist_count(){
+    if( function_exists( 'YITH_WCWL' ) ){
+        wp_send_json( YITH_WCWL()->count_products() );
+    }
 }
-add_action( 'wp_ajax_yith_wcwl_update_wishlist_count', 'yith_wcwl_ajax_update_count' );
-add_action( 'wp_ajax_nopriv_yith_wcwl_update_wishlist_count', 'yith_wcwl_ajax_update_count' );
+add_action( 'wp_ajax_update_wishlist_count', 'update_wishlist_count' );
+add_action( 'wp_ajax_nopriv_update_wishlist_count', 'update_wishlist_count' );
+
+function enqueue_custom_wishlist_js(){
+	wp_enqueue_script( 'yith-wcwl-custom-js', get_template_directory_uri() . '/js/yith-wcwl-custom.js', array( 'jquery' ), false, true );
 }
+add_action( 'wp_enqueue_scripts', 'enqueue_custom_wishlist_js' );

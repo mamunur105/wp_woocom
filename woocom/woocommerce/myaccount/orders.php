@@ -23,7 +23,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
-
+<div class="row">
+    <div class="col-xs-12">
+      <div class="heading-part heading-bg mb-30">
+        <h2 class="heading m-0">My Orders</h2>
+      </div>
+    </div>
+  </div>
 <?php if ( $has_orders ) : ?>
 
 	<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
@@ -69,7 +75,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 								if ( ! empty( $actions ) ) {
 									foreach ( $actions as $key => $action ) {
-										echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
+										echo '<a href="' . esc_url( $action['url'] ) . '" class="btn btn-color ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
 									}
 								}
 								?>

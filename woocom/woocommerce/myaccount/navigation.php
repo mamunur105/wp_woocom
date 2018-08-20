@@ -23,10 +23,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 do_action( 'woocommerce_before_account_navigation' );
 ?>
 <div class="account-sidebar account-tab mb-xs-30">
-	<div class="account-tab-inner">
-              
-		<nav class="woocommerce-MyAccount-navigation">
-
+	<div class="dark-bg tab-title-bg">
+        <div class="heading-part">
+          <div class="sub-title"><span></span> My Account</div>
+        </div>
+      </div>
+	<div class="account-tab-inner"> 
+		<nav>
 			<ul class="account-tab-stap">
 				<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
 					<li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">

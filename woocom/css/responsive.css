@@ -434,28 +434,11 @@ ul.social-icon li i.fa{
     z-index: 2;
 }
 
-/* .navbar-collapse.menu-open {
-    left: 0;
-} */
-/* .navbar-collapse.collapse {
-	display: none !important;
-} */
 .navbar-collapse.in {
 	display: block !important;
 	left: 0px;
 }
-/* .collapsing {
-    height: 0;
-    overflow: hidden;
-    position: relative;
-    transition-duration: 0.35s;
-    transition-property: height, visibility;
-    transition-timing-function: ease;
-     transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -webkit-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-} */
+
 .navbar-nav > li {
 	float: none;
 }
@@ -793,6 +776,10 @@ ul.social-icon li i.fa{
 
 
 @media (max-width: 767px) {
+.table-responsive {
+    border-left: 0;
+    border-right: 0;
+}
 .center-xs {
 	text-align: center;
 }

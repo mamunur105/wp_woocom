@@ -22,7 +22,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 
 /*woocommerce prize override */
-
+.min-600{
+    min-height: 600px;
+}
 .woocommerce div.product  span.price {
     font-size: 18px;
     color: #EA232A;
@@ -360,7 +362,7 @@ ul.sub-menu.sub-menu-level1 li.level a {
     margin: 0 ;
 }
 .wishlist-styling .yith-wcwl-add-to-wishlist a.add_to_wishlist{
-    text-indent: -99999999999999px;
+    /*text-indent: -99999999999999px;*/
     height: 40px;
     width: 100%;
     position: relative;
@@ -368,18 +370,31 @@ ul.sub-menu.sub-menu-level1 li.level a {
     background: transparent;
 }
 .wishlist-styling i {
-    z-index: 9;
+    /*z-index: 9;*/
 }
 
-/*a.add_to_wishlist {
+a.add_to_wishlist {
     cursor: pointer;
     position: relative;
     z-index: 9;
     width: 40px !important;
     height: 40px !important;
     background: transparent;
-        background-color: transparent;
-}*/
+    background-color: transparent;
+}
+.item-overlay ul li a.add_to_wishlist:before {
+    content: "\f08a";
+    font-family: 'FontAwesome';
+    background: transparent;
+    text-align: center;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
 .wishlist-styling .feedback {
     display: none;
 }
@@ -393,4 +408,56 @@ ul.sub-menu.sub-menu-level1 li.level a {
     z-index: 99;
     position: relative;
     display: block;
+}
+a.added_to_cart.wc-forward {
+    width: 50px;
+    line-height: 40px;
+}
+/*login page */
+.inner-banner {
+    padding: 53px 0;
+    /* width: 100%; */
+    background-size: cover;
+}
+.main-form.login {
+    border: none !important;
+}
+
+header.woocommerce-Address-title.title {
+    padding: 15px 25px;
+    vertical-align: middle;
+    background: #f5f5f5;
+    border-bottom: none;
+}
+header.woocommerce-Address-title.title {
+}
+.woocommerce-account .addresses .title h3{
+   margin: 0; 
+}
+.woocommerce-Address address {
+    padding: 15px 30px;
+}
+.woocommerce a.remove {
+    display: inline-block;
+}
+.cart-item-table .table tbody tr td.product-remove {
+    padding: 20px 0px 20px 0;
+}
+span.select2-selection.select2-selection--single {
+    padding: 5px 5px;
+    min-height: 40px;
+    border: 1px solid #eaeaea;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 39px;
+}
+input#ship-to-different-address-checkbox,
+input#payment_method_ppec_paypal,
+input#payment_method_bacs {
+    width: auto;
+    min-height: auto;
+}
+input#ship-to-different-address-checkbox {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

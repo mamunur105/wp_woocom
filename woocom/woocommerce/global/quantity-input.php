@@ -27,16 +27,18 @@ if ( $max_value && $min_value === $max_value ) {
 	</div>
 	<?php
 } else {
+// global $post;
+// $id = $post->ID;
 ?>
 
 	<div class="product-qty">
-	  <label for="qty">Qty:</label>
+	  <label for="qty-<?php echo $id ?>">Qty:</label>
 	  <div class="custom-qty">
-	    <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;" class="reduced items" type="button"> <i class="fa fa-minus"></i> </button>
+	    <button onclick="var result = document.getElementById('qty-<?php echo esc_attr( $input_id ); ?>'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;" class="reduced items" type="button"> <i class="fa fa-minus"></i> </button>
 	    <!-- <input type="text" class="input-text qty" title="Qty" value="<?php echo esc_attr( $input_value ); ?>" maxlength="8" id="qty" name="qty"> -->
 	    <?php $labelledby = ! empty( $args['product_name'] ) ? sprintf( __( '%s quantity', 'woocommerce' ), strip_tags( $args['product_name'] ) ) : '';?>
 		<input type="text"  
-		id="qty" 
+		id="qty-<?php echo esc_attr( $input_id ); ?>" 
 		class="input-text qty text" 
 		step="<?php echo esc_attr( $step ); ?>" 
 		min="<?php echo esc_attr( $min_value ); ?>" 
@@ -49,7 +51,7 @@ if ( $max_value && $min_value === $max_value ) {
 		inputmode="<?php echo esc_attr( $inputmode ); ?>" 
 		aria-labelledby="<?php  echo esc_attr( $labelledby );  ?>" />
 
-	    <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items" type="button"> <i class="fa fa-plus"></i> </button>
+	    <button onclick="var result = document.getElementById('qty-<?php echo esc_attr( $input_id ); ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items" type="button"> <i class="fa fa-plus"></i> </button>
 	  </div>
 	</div>
 

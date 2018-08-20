@@ -78,6 +78,15 @@ function woocom_register_required_plugins() {
 		// 	'slug'      => 'ti-woocommerce-wishlist',
 		// 	'required'  => true,
 		// ),
+
+		array(
+			'name'      => 'Yith Wishlist Plugin',
+			'slug'      => 'yith-woocommerce-wishlist',
+			'required'  => true,
+		),
+
+
+		
 		
 		array(
 			'name'      => 'WPS Hide Login',

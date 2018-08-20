@@ -91,14 +91,23 @@
 								</li>
 
 								<li class="cart-icon"> <a class="close-iconstyle" href="#"><span><i class="fa fa-shopping-cart"></i> <small class="cart-notification"><?php  echo wp_kses_data ( WC()->cart->get_cart_contents_count() ); ?></small> </span> </a>
-									<div class="cart-dropdown header-link-dropdown">
-										<?php // woocommerce_mini_cart(); ?>
-										
-										<?php the_widget( 'WC_Widget_Cart', '' ); ?>
-										
-									</div>
+
+									<?php if (!is_cart()) { ?> 
+								        <div class="cart-dropdown header-link-dropdown">
+											<?php // woocommerce_mini_cart(); ?>
+											
+											<?php the_widget( 'WC_Widget_Cart', '' ); ?>
+											
+										</div>
+
+								     <?php  }  ?>
+								     
+									
 								</li>
-								<li class="account-icon"> <a href="#"><span><i class="fa fa-heart-o"></i></span></a></li>
+								<li class="account-icon cart-icon"> <a href="<?php echo esc_url(home_url()) ?>/wishlist"><span><i class="fa fa-heart-o"></i><small id="wishlist_counter" class=" wishlist-notification "> 
+									<?php if( function_exists( 'YITH_WCWL' ) ){ 
+										echo YITH_WCWL()->count_products();  
+									}?> </small></span></a></li>
 							</ul>
 						</div>
 					</div>
